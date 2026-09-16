@@ -20,8 +20,6 @@ def json_config():
 def windows():
     print("[!] Started scanning...")
     scripts_path = "Windows"
-    registry_run_keys = "Windows/reg_startup_scan.ps1"
-    startup_folders_scan = "Windows/startup_folders.ps1"
     
     if not os.path.exists(scripts_path):
         print(f"[X] Error: {scripts_path} not found. Please ensure the Windows folder within this repo, is in the correct location.")
@@ -31,7 +29,7 @@ def windows():
         return
     checks = {
         "registry_run_keys": "Windows/reg_startup_scan.ps1",
-        "startup_folders": "Windows/startup_folders.ps1",
+        "startup_folders": "Windows/startup_folders_scan.ps1",
     }
 
     for check_name, script in checks.items():
@@ -49,9 +47,9 @@ def main():
     if current_os == "Windows":
         windows()
     elif current_os == "Linux":
-        print("[!] Linux detected. Support is not implemented yet.")
+        print("[!] Linux detected. Support is not coded yet.")
     elif current_os == "Darwin":
-        print("[!] macOS detected. Support is not implemented yet.")
+        print("[!] macOS detected. Support is not coded yet.")
     else:
         print("[X] Unknown operating system. Could not scan")
 
