@@ -1,4 +1,4 @@
-$currentdir = cmd.exe /C cd C:
+$currentdir = (Get-Location).Path
 
 Write-Host "`n[*] Checking Scheduled Tasks..."
 
@@ -27,12 +27,25 @@ else
 }
 write-host "[*] Successfully scanned startup folders for current user and all users."
 
-# This not worky yet :(
-[Json]$MyJsonVariable = "
-{
-    "type": "Current User Startup Folder",
-    "location": "$Current_User_Startup",
+write-host "[*] Finding properties of startup elements."
 
-
-
+$Current_User_Startup_Folder_details = @{
+    type     = "Current User Startup Folder (Shell:startup)"
+    location = $Current_User_Startup
+    name     = "Example"
+    command  = "C:\path\program.exe"
+    evidence = @{}
 }
+
+$Current_User_Startup_Folder_JsonDetails = $Current_User_Startup_Folder_details | ConvertTo-Json -Depth 5
+
+
+$All_User_Startup_Folder_details = @{
+    type     = "Current User Startup Folder (Shell:Common Startup)"
+    location = $All_Users_Startup
+    name     = "Example"
+    command  = "C:\path\program.exe"
+    evidence = @{}
+}
+
+$All_User_Startup_Folder_JsonDetails = $All_User_Startup_Folder_details | ConvertTo-Json -Depth 5

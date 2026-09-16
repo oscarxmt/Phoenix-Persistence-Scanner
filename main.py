@@ -35,6 +35,8 @@ def windows():
     for check_name, script in checks.items():
         if config["checks"].get(check_name):
             subprocess.run(["powershell", "-ExecutionPolicy", "Bypass", "-File", script])
+
+
 def main():
     parser = argparse.ArgumentParser(description="Persistence Scanner")
     args = parser.parse_args()
