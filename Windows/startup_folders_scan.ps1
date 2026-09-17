@@ -1,51 +1,62 @@
-$currentdir = (Get-Location).Path
+[CmdletBinding()]
+param()
 
-Write-Host "`n[*] Checking Scheduled Tasks..."
+$results = @()
+$errors = @()
 
-$user = $env:username 
+$currentUserStartupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+$allUsersStartupPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
 
-$finalfilename = $user + "_ScheduledTask"
-
-Write-Host "`n[*] Checking Startup Folders..."
-
-
-if(test-path "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup")
-{
-  $Current_User_Startup = Get-ChildItem "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+if (Test-Path $currentUserStartupPath) {
+    $Current_User_Startup = Get-ChildItem -Path $currentUserStartupPath
 }
-else
-{
-  write-host "[!] Current user startup folder not found."
-}
-if(test-path "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup")
-{
-   $All_Users_Startup = Get-ChildItem "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
-}
-else
-{
-  write-host "[!] All users startup folder not found."
-}
-write-host "[*] Successfully scanned startup folders for current user and all users."
-
-write-host "[*] Finding properties of startup elements."
-
-$Current_User_Startup_Folder_details = @{
-    type     = "Current User Startup Folder (Shell:startup)"
-    location = $Current_User_Startup
-    name     = "Example"
-    command  = "C:\path\program.exe"
-    evidence = @{}
+else {
+    $Current_User_Startup = @()
+    $errors += [PSCustomObject]@{
+        location = $currentUserStartupPath
+        message  = "Current user startup folder not found."
+    }
 }
 
-$Current_User_Startup_Folder_JsonDetails = $Current_User_Startup_Folder_details | ConvertTo-Json -Depth 5
-
-
-$All_User_Startup_Folder_details = @{
-    type     = "Current User Startup Folder (Shell:Common Startup)"
-    location = $All_Users_Startup
-    name     = "Example"
-    command  = "C:\path\program.exe"
-    evidence = @{}
+if (Test-Path $allUsersStartupPath) {
+    $All_Users_Startup = Get-ChildItem -Path $allUsersStartupPath
+}
+else {
+    $All_Users_Startup = @()
+    $errors += [PSCustomObject]@{
+        location = $allUsersStartupPath
+        message  = "All users startup folder not found."
+    }
 }
 
-$All_User_Startup_Folder_JsonDetails = $All_User_Startup_Folder_details | ConvertTo-Json -Depth 5
+foreach ($item in $Current_User_Startup) {
+    $results += [PSCustomObject]@{
+        type     = "startup_folder"
+        name     = $item.Name
+        location = $item.FullName
+        command  = $null
+        enabled  = $true
+        evidence = @{
+            extension = $item.Extension
+        }
+    }
+}
+
+foreach ($item in $All_Users_Startup) {
+    $results += [PSCustomObject]@{
+        type     = "startup_folder"
+        name     = $item.Name
+        location = $item.FullName
+        command  = $null
+        enabled  = $true
+        evidence = @{
+            extension = $item.Extension
+        }
+    }
+}
+
+[PSCustomObject]@{
+    check   = "startup_folders"
+    results = @($results)
+    errors  = @($errors)
+} | ConvertTo-Json -Depth 5

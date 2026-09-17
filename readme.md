@@ -28,10 +28,6 @@ project, so the current working directory does not matter.
 
 ```text
 main.py                 Compatibility entry point
-phoenix/                Python application code
-  cli.py                Command-line entry point
-  config.py             Configuration loading and validation
-  scanner.py            Check orchestration
 Windows/                PowerShell scanner checks
 config.json             Check configuration
 ```

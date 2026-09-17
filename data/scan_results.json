@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "type": "startup_folder",
+      "name": "Ollama.lnk",
+      "location": "C:\\Users\\Oscar S\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Ollama.lnk",
+      "command": null,
+      "enabled": true,
+      "evidence": {
+        "extension": ".lnk"
+      }
+    },
+    {
+      "type": "startup_folder",
+      "name": "Send til OneNote.lnk",
+      "location": "C:\\Users\\Oscar S\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Send til OneNote.lnk",
+      "command": null,
+      "enabled": true,
+      "evidence": {
+        "extension": ".lnk"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "check": "registry_run_keys",
+      "message": "PowerShell returned invalid JSON",
+      "details": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "check": "scheduled_tasks",
+      "message": "PowerShell returned invalid JSON",
+      "details": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}
