@@ -53,12 +53,13 @@ foreach ($item in $Registry_Startup_RunKeys) {
     errors  = @($errors)
 } | ConvertTo-Json -Depth 5
 
-$outputDir = "/../data" # bad practice will not work uwu but attmepting to save results to dir
+$projectRoot = Split-Path -Path $PSScriptRoot -Parent
+$outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
+$outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
+
 if (-not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir | Out-Null
 }
-
-$outputPath = "$outputDir/scan_results.json"
 
 [PSCustomObject]@{
     check   = "registry_run_keys"
