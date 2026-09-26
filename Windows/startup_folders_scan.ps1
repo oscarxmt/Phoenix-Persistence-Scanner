@@ -25,7 +25,7 @@ else {
     $All_Users_Startup = @()
     $errors += [PSCustomObject]@{
         location = $allUsersStartupPath
-        message  = "All users startup folder not found."
+        message  = "Common startup folder not found."
     }
 }
 
@@ -42,7 +42,7 @@ foreach ($item in $Current_User_Startup) {
     }
 }
 
-foreach ($item in $All_Users_Startup) {
+foreach ($item in $All_Users_Startup) { # by all users we mean the common startup folder basically common = all users.
     $results += [PSCustomObject]@{
         type     = "startup_folder"
         name     = $item.Name

@@ -53,7 +53,7 @@ foreach ($item in $Registry_Startup_RunKeys) {
     errors  = @($errors)
 } | ConvertTo-Json -Depth 5
 
-$outputDir = "/../data" # bad practice uwu but attmepting to save results to dir
+$outputDir = "/../data" # bad practice will not work uwu but attmepting to save results to dir
 if (-not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir | Out-Null
 }

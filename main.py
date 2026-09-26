@@ -7,7 +7,7 @@ import json
 import subprocess
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__name__).resolve().parent
 
 
 def json_config():
