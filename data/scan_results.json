@@ -1,0 +1,15 @@
+{
+  "results": [],
+  "errors": [
+    {
+      "check": "registry_run_keys",
+      "message": "PowerShell returned invalid JSON",
+      "details": "Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "check": "scheduled_tasks",
+      "message": "PowerShell returned invalid JSON",
+      "details": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}

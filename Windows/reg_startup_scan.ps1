@@ -7,6 +7,13 @@ param()
 $results = @()
 $errors = @()
 
+$projectRoot = Split-Path -Path $PSScriptRoot -Parent
+$outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
+$outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
+. (Join-Path -Path $PSScriptRoot -ChildPath "ScanFinding.ps1")
+Write-Host "Looking for class file at: $(Join-Path $projectRoot 'ScanFinding.ps1')"
+
+
 $Registry_Startup_RunKeys = @(
     "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run",
     "Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run"
@@ -19,16 +26,7 @@ foreach ($item in $Registry_Startup_RunKeys) {
             if ($registry_content_item.Property.Count -gt 0) {
                 foreach ($property in $registry_content_item.Property) {
                     $commandValue = $registry_content_item.GetValue($property)
-                    $results += [PSCustomObject]@{
-                        type     = "registry_run_key"
-                        name     = $property
-                        location = $item
-                        command  = $commandValue
-                        enabled  = $true
-                        evidence = @{
-                            hive = $item
-                        }
-                    }
+                    $results += [ScanFinding]::new("registry_run_key", $property, $item, $commandValue, $true, @{ hive = $item })
                 }
             }
         }
@@ -53,9 +51,6 @@ foreach ($item in $Registry_Startup_RunKeys) {
     errors  = @($errors)
 } | ConvertTo-Json -Depth 5
 
-$projectRoot = Split-Path -Path $PSScriptRoot -Parent
-$outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
-$outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 
 if (-not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir | Out-Null
