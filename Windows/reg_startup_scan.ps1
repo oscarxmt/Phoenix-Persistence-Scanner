@@ -11,7 +11,7 @@ $projectRoot = Split-Path -Path $PSScriptRoot -Parent
 $outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
 $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 . (Join-Path -Path $PSScriptRoot -ChildPath "ScanFinding.ps1")
-Write-Host "Looking for class file at: $(Join-Path $projectRoot 'ScanFinding.ps1')"
+Write-error "Looking for class file at: $(Join-Path $projectRoot 'ScanFinding.ps1')"
 
 
 $Registry_Startup_RunKeys = @(
@@ -45,13 +45,6 @@ foreach ($item in $Registry_Startup_RunKeys) {
     }
 }
 
-[PSCustomObject]@{
-    check   = "registry_run_keys"
-    results = @($results)
-    errors  = @($errors)
-} | ConvertTo-Json -Depth 5
-
-
 if (-not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir | Out-Null
 }
@@ -60,6 +53,4 @@ if (-not (Test-Path $outputDir)) {
     check   = "registry_run_keys"
     results = @($results)
     errors  = @($errors)
-} | ConvertTo-Json -Depth 5 | Set-Content -Path $outputPath
-
-Write-Host "Results successfully saved to $outputPath" -ForegroundColor Green
+} | ConvertTo-Json -Depth 5
