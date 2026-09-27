@@ -97,7 +97,8 @@ def main():
     parser.parse_args()
 
     current_os = platform.system()
-
+    print("Made by Oscarxmt! :3")
+    print("Follow my socials: x.com/oscarxmt github.com/oscarxmt")
     print(f"[-] Detected operating system: {current_os}")
     print("=" * 40)
     
