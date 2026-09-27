@@ -35,6 +35,7 @@ def windows():
         "registry_run_keys": BASE_DIR / "Windows" / "reg_startup_scan.ps1",
         "scheduled_tasks": BASE_DIR / "Windows" / "Scheduled_Task_Scan.ps1",
         "startup_folders": BASE_DIR / "Windows" / "startup_folders_scan.ps1",
+        "services": BASE_DIR / "Windows" / "services_scan.ps1",
     }
 
     scan_results = {

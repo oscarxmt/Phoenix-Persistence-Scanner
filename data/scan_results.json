@@ -1,0 +1,1211 @@
+{
+  "results": [
+    {
+      "type": "registry_run_key",
+      "name": "OneDrive",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe\" /background",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "AMDNoiseSuppression",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\WINDOWS\\system32\\AMD\\ANR\\AMDNoiseSuppression.exe\"",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "Steam",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files (x86)\\Steam\\steam.exe\" -silent",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "WallpaperEngine",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"D:\\SteamLibrary\\steamapps\\common\\wallpaper_engine\\wallpaper64.exe\" -silent",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "VoicemodV3",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Voicemod V3\\Voicemod.exe\" --boot",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "RobloxPlayerBeta",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Users\\Oscar\\AppData\\Local\\Roblox\\Versions\\version-2366ba214ec740ca\\RobloxPlayerBeta.exe\" --launch-to-tray",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "MicrosoftEdgeAutoLaunch_7F5B5AD8F98BD7333BE9D496E675A346",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --no-startup-window --win-session-start",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "SecurityHealth",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "C:\\WINDOWS\\system32\\SecurityHealthSystray.exe",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "Bdagent",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security App\\bdagent.exe\"",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "CloudflareWARP",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "C:\\Program Files\\Cloudflare\\Cloudflare WARP\\Cloudflare WARP.exe",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "vmware-tray.exe",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\VMware\\VMware Workstation\\vmware-tray.exe\"",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "BdVpnApp",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender VPN\\BdVpnApp.exe\" startup",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "Corsair iCUE5 Software",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Corsair\\Corsair iCUE5 Software\\iCUE Launcher.exe\" --autorun",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "startup_folder",
+      "name": "test.bat",
+      "location": "C:\\Users\\Oscar\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\test.bat",
+      "command": null,
+      "enabled": true,
+      "evidence": {
+        "extension": ".bat"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AdobeUpdateService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AdobeUpdateService",
+      "command": "\"C:\\Program Files (x86)\\Common Files\\Adobe\\Adobe Desktop Common\\ElevationManager\\AdobeUpdateService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AMD Crash Defender Service",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AMD Crash Defender Service",
+      "command": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\amdfendr.inf_amd64_bea53a1d416fbcfa\\amdfendrsr.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AMD External Events Utility",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AMD External Events Utility",
+      "command": "C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\u0203303.inf_amd64_e5876a26758f154c\\B026363\\atiesrxx.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AppXSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AppXSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k wsappx -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ArmouryCrateService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ArmouryCrateService",
+      "command": "\"C:\\Program Files\\ASUS\\Armoury Crate Service\\ArmouryCrate.Service.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "asComSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\asComSvc",
+      "command": "\"C:\\Program Files (x86)\\ASUS\\AXSP\\4.08.06\\atkexComSvc.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "asus",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\asus",
+      "command": "\"C:\\Program Files (x86)\\ASUS\\Update\\AsusUpdate.exe\" /svc",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AsusCertService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AsusCertService",
+      "command": "\"C:\\Program Files (x86)\\ASUS\\AsusCertService\\1.4.4\\AsusCertService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AsusFanControlService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AsusFanControlService",
+      "command": "\"C:\\Program Files (x86)\\ASUS\\AsusFanControlService\\2.03.54\\AsusFanControlService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AsusUpdateCheck",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AsusUpdateCheck",
+      "command": "C:\\WINDOWS\\System32\\AsusUpdateCheck.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AudioEndpointBuilder",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AudioEndpointBuilder",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Audiosrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Audiosrv",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDAppSrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDAppSrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security App\\bdservicehost.exe\" \"settings/services/configs/bdappsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDAuxSrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDAuxSrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\bdservicehost.exe\" \"settings/services/configs/bdauxsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDProtSrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDProtSrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\bdservicehost.exe\" \"settings\\services\\configs\\bdprotsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "bdredline",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\bdredline",
+      "command": "\"C:\\Program Files\\Common Files\\Bitdefender\\SetupInformation\\Bitdefender RedLine\\bdredline.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "bdredline_agent",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\bdredline_agent",
+      "command": "\"C:\\Program Files\\Bitdefender Agent\\redline\\bdredline.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDSafepaySrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDSafepaySrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security App\\Safepay\\bdservicehost.exe\" \"settings/services/configs/bdsafepaysrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "bdvpnservice",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\bdvpnservice",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender VPN\\bdvpnservice.exe\" \"service\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BFE",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BFE",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "brave",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\brave",
+      "command": "\"C:\\Program Files (x86)\\BraveSoftware\\Update\\BraveUpdate.exe\" /svc",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BrokerInfrastructure",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BrokerInfrastructure",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "camsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\camsvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k osprivacy -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CDPSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CDPSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ClickToRunSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ClickToRunSvc",
+      "command": "\"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" /service",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CloudflareWARP",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CloudflareWARP",
+      "command": "\"C:\\Program Files\\Cloudflare\\Cloudflare WARP\\warp-svc.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CloudflareWARPUpdater",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CloudflareWARPUpdater",
+      "command": "\"C:\\Program Files\\Cloudflare\\Cloudflare WARP\\warp-updater-armed.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CoreMessagingRegistrar",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CoreMessagingRegistrar",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNoNetwork -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CryptSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CryptSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DcomLaunch",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DcomLaunch",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Dhcp",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Dhcp",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DiagTrack",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k utcsvc -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DispBrokerDesktopSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DispBrokerDesktopSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Dnscache",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Dnscache",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DoSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DoSvc",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DPS",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DPS",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalServiceNoNetwork -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DusmSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DusmSvc",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p -s DusmSvc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "edgeupdate",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\edgeupdate",
+      "command": "\"C:\\Program Files (x86)\\Microsoft\\EdgeUpdate\\MicrosoftEdgeUpdate.exe\" /svc",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "EventLog",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\EventLog",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "EventSystem",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\EventSystem",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceRedirectionGuard -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Everything",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Everything",
+      "command": "\"C:\\Program Files (x86)\\Everything\\Everything.exe\" -svc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "FontCache",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\FontCache",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GameInputRedistService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GameInputRedistService",
+      "command": "\"C:\\Program Files\\Microsoft GameInput\\x64\\GameInputRedistService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GamingServices",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GamingServices",
+      "command": "\"C:\\Program Files\\WindowsApps\\Microsoft.GamingServices_38.117.18001.0_x64__8wekyb3d8bbwe\\GamingServices.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GamingServicesNet",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GamingServicesNet",
+      "command": "\"C:\\Program Files\\WindowsApps\\Microsoft.GamingServices_38.117.18001.0_x64__8wekyb3d8bbwe\\GamingServicesNet.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GoogleUpdaterInternalService152.0.7933.0",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GoogleUpdaterInternalService152.0.7933.0",
+      "command": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\152.0.7933.0\\updater.exe\" --system --windows-service --service=update-internal",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GoogleUpdaterService152.0.7933.0",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GoogleUpdaterService152.0.7933.0",
+      "command": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\152.0.7933.0\\updater.exe\" --system --windows-service --service=update",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "gpsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\gpsvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k GPSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "IKEEXT",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\IKEEXT",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "InventorySvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\InventorySvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k InvSvcGroup -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "iphlpsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\iphlpsvc",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k NetSvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LADMLauncherService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LADMLauncherService",
+      "command": "\"C:\\Program Files\\Lenovo\\LADMLauncherService\\bin\\LADMAutoInstallService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LanmanServer",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LanmanWorkstation",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "MapsBroker",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\MapsBroker",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "MDCoreSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\MDCoreSvc",
+      "command": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26080.4-0\\MpDefenderCoreService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "mpssvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\mpssvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "nsi",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\nsi",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "PcaSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\PcaSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "PnkBstrA",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\PnkBstrA",
+      "command": "C:\\WINDOWS\\system32\\PnkBstrA.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Power",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Power",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ProductAgentService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ProductAgentService",
+      "command": "\"C:\\Program Files\\Bitdefender Agent\\ProductAgentService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ProfSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ProfSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k UserProfileService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ROG Live Service",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ROG Live Service",
+      "command": "\"C:\\Program Files\\ASUS\\ROG Live Service\\ROGLiveService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "RpcEptMapper",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\RpcEptMapper",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k RPCSS -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "RpcSs",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\RpcSs",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k rpcss -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SamSs",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SamSs",
+      "command": "C:\\WINDOWS\\system32\\lsass.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Schedule",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Schedule",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SENS",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SENS",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcsRedirectionGuard -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ShellHWDetection",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ShellHWDetection",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Spooler",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Spooler",
+      "command": "C:\\WINDOWS\\System32\\spoolsv.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "sppsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\sppsvc",
+      "command": "C:\\WINDOWS\\system32\\sppsvc.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Start11",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Start11",
+      "command": "\"C:\\Program Files (x86)\\Stardock\\Start11\\Start11Srv.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "StateRepository",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\StateRepository",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k appmodel -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "StorSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\StorSvc",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SysMain",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SysMain",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SystemEventsBroker",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SystemEventsBroker",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "TextInputManagementService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\TextInputManagementService",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Themes",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Themes",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "TrkWks",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\TrkWks",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "TrustedInstaller",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\TrustedInstaller",
+      "command": "C:\\WINDOWS\\servicing\\TrustedInstaller.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UPDATESRV",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UPDATESRV",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\updatesrv.exe\" /service",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UserManager",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UserManager",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UsoSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UsoSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMAuthdService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMAuthdService",
+      "command": "\"C:\\Program Files\\VMware\\VMware Workstation\\vmware-authd.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMnetDHCP",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMnetDHCP",
+      "command": "C:\\WINDOWS\\system32\\vmnetdhcp.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMUSBArbService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMUSBArbService",
+      "command": "\"C:\\Program Files (x86)\\Common Files\\VMware\\USB\\vmware-usbarbitrator64.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMware NAT Service",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMware NAT Service",
+      "command": "C:\\WINDOWS\\system32\\vmnat.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VSSERV",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VSSERV",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\bdservicehost.exe\" \"settings/services/configs/bdshieldsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Wcmsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Wcmsvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p -s Wcmsvc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "whesvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\whesvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k whesvc -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WinDefend",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WinDefend",
+      "command": "\"C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4.18.26080.4-0\\MsMpEng.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Winmgmt",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Winmgmt",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WlanSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WlanSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WpnService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WpnService",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WSAIFabricSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WSAIFabricSvc",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k WSAIFabricSvcGroup -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "wscsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\wscsvc",
+      "command": "C:\\WINDOWS\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WSearch",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WSearch",
+      "command": "C:\\WINDOWS\\system32\\SearchIndexer.exe /Embedding",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WSLService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WSLService",
+      "command": "\"C:\\Program Files\\WSL\\wslservice.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "cbdhsvc_1b6c1b",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\cbdhsvc_1b6c1b",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k ClipboardSvcGroup -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CDPUserSvc_1b6c1b",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CDPUserSvc_1b6c1b",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k UnistackSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "webthreatdefusersvc_1b6c1b",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\webthreatdefusersvc_1b6c1b",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WpnUserService_1b6c1b",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WpnUserService_1b6c1b",
+      "command": "C:\\WINDOWS\\system32\\svchost.exe -k UnistackSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CodexSandboxService.OpenAI.Codex",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CodexSandboxService.OpenAI.Codex",
+      "command": "\"C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.924.2738.0_x64__2p2nqsd0c76g0\\app\\resources\\codex-windows-sandbox-service.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GoogleUpdaterInternalService156.0.8067.0",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GoogleUpdaterInternalService156.0.8067.0",
+      "command": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\156.0.8067.0\\updater.exe\" --system --windows-service --service=update-internal",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GoogleUpdaterService156.0.8067.0",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GoogleUpdaterService156.0.8067.0",
+      "command": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\156.0.8067.0\\updater.exe\" --system --windows-service --service=update",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "check": "scheduled_tasks",
+      "message": "PowerShell returned invalid JSON",
+      "details": "Expecting value: line 1 column 1 (char 0)"
+    }
+  ]
+}

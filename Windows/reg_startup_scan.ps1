@@ -11,8 +11,6 @@ $projectRoot = Split-Path -Path $PSScriptRoot -Parent
 $outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
 $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 . (Join-Path -Path $PSScriptRoot -ChildPath "ScanFinding.ps1")
-Write-error "Looking for class file at: $(Join-Path $projectRoot 'ScanFinding.ps1')"
-
 
 $Registry_Startup_RunKeys = @(
     "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run",
