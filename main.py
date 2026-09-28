@@ -91,6 +91,10 @@ def windows():
 
     print(f"[+] Scan results saved to {output_file}")
 
+def json_parser():
+    json_path = BASE_DIR / "config.json"
+    print(f"[!] Parsing config.json... Location: {json_path}")
+    exit()
 
 def main():
     parser = argparse.ArgumentParser(description="Persistence Scanner")
@@ -100,7 +104,7 @@ def main():
     print("Made by Oscarxmt! :3")
     print("Follow my socials: x.com/oscarxmt github.com/oscarxmt")
     print(f"[-] Detected operating system: {current_os}")
-    print("=" * 40)
+    print("<" + "=" * 40 + ">")
     
     if current_os == "Windows":
         windows()
