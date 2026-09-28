@@ -21,7 +21,7 @@ foreach($task in $tasks) {
             $command = "$($action.Execute) $($action.Arguments)"
             $enabled=($task.State -ne "Disabled")
             $evidence=@{ state = $task.State }
-            $results += [ScanFinding]::new($type, $name, $location, $command, $enabled, $evidence) # this needs to be impelmented. This is not finished code.
+            $results += [ScanFinding]::new($type, $name, $location, $command, $enabled, $evidence)
         }
         catch {
             write-host $_.Exception.Message

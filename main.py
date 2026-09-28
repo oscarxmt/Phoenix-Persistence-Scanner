@@ -6,6 +6,7 @@ import argparse
 import json
 import subprocess
 from pathlib import Path
+#import re
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -80,7 +81,7 @@ def windows():
                 "message": "PowerShell returned invalid JSON",
                 "details": str(error)
             })
-
+    print("[+] Scan completed. Saving results to json file...")
     output_file = Path(config["output"]["file"])
     if not output_file.is_absolute():
         output_file = BASE_DIR / output_file
@@ -91,6 +92,10 @@ def windows():
 
     print(f"[+] Scan results saved to {output_file}")
 
+def json_parser():
+    json_path = BASE_DIR / "config.json"
+    print(f"[!] Parsing config.json... Location: {json_path}")
+    exit()
 
 def main():
     parser = argparse.ArgumentParser(description="Persistence Scanner")
@@ -100,7 +105,7 @@ def main():
     print("Made by Oscarxmt! :3")
     print("Follow my socials: x.com/oscarxmt github.com/oscarxmt")
     print(f"[-] Detected operating system: {current_os}")
-    print("=" * 40)
+    print("<" + "=" * 40 + ">")
     
     if current_os == "Windows":
         windows()
@@ -109,7 +114,7 @@ def main():
     elif current_os == "Darwin":
         print("[!] macOS detected. Support is not coded yet.")
     else:
-        print("[X] Unknown operating system. Could not scan")
+        print("[X] Unknown operating system. Could not scan.")
 
 
 
