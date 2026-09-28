@@ -80,7 +80,7 @@ def windows():
                 "message": "PowerShell returned invalid JSON",
                 "details": str(error)
             })
-
+    print("[+] Scan completed. Saving results to json file...")
     output_file = Path(config["output"]["file"])
     if not output_file.is_absolute():
         output_file = BASE_DIR / output_file
@@ -109,7 +109,7 @@ def main():
     elif current_os == "Darwin":
         print("[!] macOS detected. Support is not coded yet.")
     else:
-        print("[X] Unknown operating system. Could not scan")
+        print("[X] Unknown operating system. Could not scan.")
 
 
 

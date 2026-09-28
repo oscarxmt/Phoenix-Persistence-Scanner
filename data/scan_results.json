@@ -1,0 +1,2835 @@
+{
+  "results": [
+    {
+      "type": "registry_run_key",
+      "name": "OneDrive",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Microsoft OneDrive\\OneDrive.exe\" /background",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "Discord",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Users\\Oscar S\\AppData\\Local\\Discord\\Update.exe\" --processStart Discord.exe",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "WallpaperEngine",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files (x86)\\Steam\\steamapps\\common\\wallpaper_engine\\wallpaper64.exe\" -silent",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "MicrosoftEdgeAutoLaunch_D9719A9B12539178D6ACE389D876646F",
+      "location": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\" --no-startup-window --win-session-start",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "SecurityHealth",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "C:\\Windows\\system32\\SecurityHealthSystray.exe",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "RtkAudUService",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_e747b8bdadfd6fe3\\RtkAudUService64.exe\" -background",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "Bdagent",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security App\\bdagent.exe\"",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "registry_run_key",
+      "name": "vmware-tray.exe",
+      "location": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+      "command": "\"C:\\Program Files\\VMware\\VMware Workstation\\vmware-tray.exe\"",
+      "enabled": true,
+      "evidence": {
+        "hive": "Registry::HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Run"
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Adobe Acrobat Update Task",
+      "location": "\\",
+      "command": "C:\\Program Files (x86)\\Common Files\\Adobe\\ARM\\1.0\\AdobeARM.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "AMDRyzenMasterSDKTask",
+      "location": "\\",
+      "command": "\"C:\\Program Files\\AMD\\CNext\\CNext\\cpumetricsserver.exe\" ",
+      "enabled": true,
+      "evidence": {
+        "state": 4
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CreateExplorerShellUnelevatedTask",
+      "location": "\\",
+      "command": "C:\\Windows\\explorer.exe /NoUACCheck",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Launch Adobe CCXProcess",
+      "location": "\\",
+      "command": "\"C:\\Program Files\\Adobe\\Adobe Creative Cloud Experience\\CCXProcess.exe\" ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "OneDrive Per-Machine Standalone Update Task",
+      "location": "\\",
+      "command": "C:\\Program Files\\Microsoft OneDrive\\OneDriveStandaloneUpdater.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "OneDrive Reporting Task-S-1-5-21-728411797-1289135455-1493451368-1001",
+      "location": "\\",
+      "command": "C:\\Program Files\\Microsoft OneDrive\\OneDriveStandaloneUpdater.exe /reporting",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "OneDrive Startup Task-S-1-5-21-728411797-1289135455-1493451368-1001",
+      "location": "\\",
+      "command": "C:\\Program Files\\Microsoft OneDrive\\26.163.0823.0004\\OneDriveLauncher.exe /startInstances",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Stardock Start11 Steam Update Checks",
+      "location": "\\",
+      "command": "\"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Start11\\Start11Bootstrap.exe\" \"/updatecheckonly\"",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "StartCN",
+      "location": "\\",
+      "command": "\"C:\\Program Files\\AMD\\CNext\\CNext\\cncmd.exe\" startwithdelay",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "StartDVR",
+      "location": "\\",
+      "command": "\"C:\\Program Files\\AMD\\CNext\\CNext\\RSServCmd.exe\" ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RunPlatformExperienceHelperOnUnlock",
+      "location": "\\GoogleUserPEH\\",
+      "command": "\"C:\\Program Files\\Google\\Chrome\\Application\\PlatformExperienceHelper\\platform_experience_helper.exe\" ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RunPlatformExperienceHelper_Daily",
+      "location": "\\GoogleUserPEH\\",
+      "command": "\"C:\\Program Files\\Google\\Chrome\\Application\\PlatformExperienceHelper\\platform_experience_helper.exe\" ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RunPlatformExperienceHelper_Metrics",
+      "location": "\\GoogleUserPEH\\",
+      "command": "\"C:\\Program Files\\Google\\Chrome\\Application\\PlatformExperienceHelper\\platform_experience_helper.exe\" --chrome-upload-metrics",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "LenovoMachineFixUser_OOBE_AUTO_Notification",
+      "location": "\\Lenovo\\",
+      "command": "C:\\ProgramData\\Lenovo\\Vantage\\Addins\\LenovoMachineFixUserAddin\\1.0.10.390\\ScheduleEventAction.exe \"LenovoMachineFixUser_OOBE_AUTO_Notification\"",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Actions Server",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Microsoft Office\\root\\VFS\\ProgramFilesCommonX64\\Microsoft Shared\\Office16\\ActionsServer\\ActionsServer.exe availabilitycheck",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Automatic Updates 2.0",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeC2RClient.exe /frequentupdate SCHEDULEDTASK displaylevel=False",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Background Push Maintenance",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Microsoft Office\\root\\vfs\\ProgramFilesCommonx64\\Microsoft Shared\\Office16\\opushutil.exe /pushregistration",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office ClickToRun Service Monitor",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeC2RClient.exe /WatchService",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Feature Updates",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Microsoft Office\\root\\Office16\\sdxhelper.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Feature Updates Logon",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Microsoft Office\\root\\Office16\\sdxhelper.exe /onlogon",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Performance Monitor",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Microsoft Office\\root\\VFS\\ProgramFilesCommonX64\\Microsoft Shared\\Office16\\operfmon.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Serviceability Manager",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\officesvcmgr.exe /checkin",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Office Startup Maintenance",
+      "location": "\\Microsoft\\Office\\",
+      "command": "C:\\Program Files\\Microsoft Office\\root\\VFS\\ProgramFilesCommonX64\\Microsoft Shared\\Office16\\ActionsServer\\ActionsServer.exe wacheck",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "BackgroundDownload",
+      "location": "\\Microsoft\\VisualStudio\\Updates\\",
+      "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\resources\\app\\ServiceHub\\Services\\Microsoft.VisualStudio.Setup.Service\\BackgroundDownload.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": ".NET Framework NGEN v4.0.30319",
+      "location": "\\Microsoft\\Windows\\.NET Framework\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": ".NET Framework NGEN v4.0.30319 64",
+      "location": "\\Microsoft\\Windows\\.NET Framework\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RecoverabilityToastTask",
+      "location": "\\Microsoft\\Windows\\AccountHealth\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "AD RMS Rights Policy Template Management (Manual)",
+      "location": "\\Microsoft\\Windows\\Active Directory Rights Management Services Client\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PolicyConverter",
+      "location": "\\Microsoft\\Windows\\AppID\\",
+      "command": "%windir%\\system32\\appidpolicyconverter.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "VerifiedPublisherCertStoreCheck",
+      "location": "\\Microsoft\\Windows\\AppID\\",
+      "command": "%windir%\\system32\\appidcertstorecheck.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Microsoft Compatibility Appraiser Exp",
+      "location": "\\Microsoft\\Windows\\Application Experience\\",
+      "command": "%windir%\\system32\\compattelrunner.exe -m:appraiser.dll -f:DoScheduledTelemetryRun express",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PcaPatchDbTask",
+      "location": "\\Microsoft\\Windows\\Application Experience\\",
+      "command": "%windir%\\system32\\rundll32.exe %windir%\\system32\\PcaSvc.dll,PcaPatchSdbTask",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SdbinstMergeDbTask",
+      "location": "\\Microsoft\\Windows\\Application Experience\\",
+      "command": "%windir%\\system32\\sdbinst.exe -mm",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "appuriverifierdaily",
+      "location": "\\Microsoft\\Windows\\ApplicationData\\",
+      "command": "%windir%\\system32\\AppHostRegistrationVerifier.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "appuriverifierinstall",
+      "location": "\\Microsoft\\Windows\\ApplicationData\\",
+      "command": "%windir%\\system32\\AppHostRegistrationVerifier.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CleanupTemporaryState",
+      "location": "\\Microsoft\\Windows\\ApplicationData\\",
+      "command": "%windir%\\system32\\rundll32.exe Windows.Storage.ApplicationData.dll,CleanupTemporaryState",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "DsSvcCleanup",
+      "location": "\\Microsoft\\Windows\\ApplicationData\\",
+      "command": "%windir%\\system32\\dstokenclean.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Backup",
+      "location": "\\Microsoft\\Windows\\AppListBackup\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "BackupNonMaintenance",
+      "location": "\\Microsoft\\Windows\\AppListBackup\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "AppInstallerUpdater",
+      "location": "\\Microsoft\\Windows\\AppxDeploymentClient\\",
+      "command": "%windir%\\system32\\rundll32.exe %windir%\\system32\\AppxDeploymentClient.dll,ScheduleAppInstallerBackgroundUpdate",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "BitLocker Encrypt All Drives",
+      "location": "\\Microsoft\\Windows\\BitLocker\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "BitLocker MDM policy Refresh",
+      "location": "\\Microsoft\\Windows\\BitLocker\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UninstallDeviceTask",
+      "location": "\\Microsoft\\Windows\\Bluetooth\\",
+      "command": "BthUdTask.exe $(Arg0)",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "BgTaskRegistrationMaintenanceTask",
+      "location": "\\Microsoft\\Windows\\BrokerInfrastructure\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "maintenancetasks",
+      "location": "\\Microsoft\\Windows\\capabilityaccessmanager\\",
+      "command": "%windir%\\system32\\rundll32.exe %windir%\\system32\\CapabilityAccessManager.dll,CapabilityAccessManagerDoStoreMaintenance",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UserTask",
+      "location": "\\Microsoft\\Windows\\CertificateServicesClient\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UserTask-Roam",
+      "location": "\\Microsoft\\Windows\\CertificateServicesClient\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ProactiveScan",
+      "location": "\\Microsoft\\Windows\\Chkdsk\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SyspartRepair",
+      "location": "\\Microsoft\\Windows\\Chkdsk\\",
+      "command": "%windir%\\system32\\bcdboot.exe %windir% /sysrepair",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CreateObjectTask",
+      "location": "\\Microsoft\\Windows\\CloudExperienceHost\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Backup",
+      "location": "\\Microsoft\\Windows\\CloudRestore\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Restore",
+      "location": "\\Microsoft\\Windows\\CloudRestore\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UnifiedConsentSyncTask",
+      "location": "\\Microsoft\\Windows\\ConsentUX\\UnifiedConsent\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CmCleanup",
+      "location": "\\Microsoft\\Windows\\Containers\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Data Integrity Check And Scan",
+      "location": "\\Microsoft\\Windows\\Data Integrity Scan\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Data Integrity Scan",
+      "location": "\\Microsoft\\Windows\\Data Integrity Scan\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Data Integrity Scan for Crash Recovery",
+      "location": "\\Microsoft\\Windows\\Data Integrity Scan\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ScheduledDefrag",
+      "location": "\\Microsoft\\Windows\\Defrag\\",
+      "command": "%windir%\\system32\\defrag.exe -c -h -o -$",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Device",
+      "location": "\\Microsoft\\Windows\\Device Information\\",
+      "command": "%windir%\\system32\\devicecensus.exe SystemCxt",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Device User",
+      "location": "\\Microsoft\\Windows\\Device Information\\",
+      "command": "%windir%\\system32\\devicecensus.exe UserCxt",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RecommendedTroubleshootingScanner",
+      "location": "\\Microsoft\\Windows\\Diagnosis\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Scheduled",
+      "location": "\\Microsoft\\Windows\\Diagnosis\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UnexpectedCodepath",
+      "location": "\\Microsoft\\Windows\\Diagnosis\\",
+      "command": "%windir%\\system32\\UCConfigTask.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "DirectXDatabaseUpdater",
+      "location": "\\Microsoft\\Windows\\DirectX\\",
+      "command": "%windir%\\system32\\directxdatabaseupdater.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "DXGIAdapterCache",
+      "location": "\\Microsoft\\Windows\\DirectX\\",
+      "command": "%windir%\\system32\\dxgiadaptercache.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SilentCleanup",
+      "location": "\\Microsoft\\Windows\\DiskCleanup\\",
+      "command": "%windir%\\system32\\cleanmgr.exe /autocleanstoragesense /d %systemdrive%",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Diagnostics",
+      "location": "\\Microsoft\\Windows\\DiskFootprint\\",
+      "command": "%windir%\\system32\\disksnapshot.exe -z",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "StorageSense",
+      "location": "\\Microsoft\\Windows\\DiskFootprint\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "dusmtask",
+      "location": "\\Microsoft\\Windows\\DUSM\\",
+      "command": "%SystemRoot%\\System32\\dusmtask.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "EDP App Launch Task",
+      "location": "\\Microsoft\\Windows\\EDP\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "EDP Auth Task",
+      "location": "\\Microsoft\\Windows\\EDP\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "EDP Inaccessible Credentials Task",
+      "location": "\\Microsoft\\Windows\\EDP\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "StorageCardEncryption Task",
+      "location": "\\Microsoft\\Windows\\EDP\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ExploitGuard MDM policy Refresh",
+      "location": "\\Microsoft\\Windows\\ExploitGuard\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "File History (maintenance mode)",
+      "location": "\\Microsoft\\Windows\\FileHistory\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "GovernedFeatureUsageProcessing",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ReconcileConfigs",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ReconcileFeatures",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SafeguardsReconciliation",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UsageDataFlushing",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UsageDataReceiver",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UsageDataReporting",
+      "location": "\\Microsoft\\Windows\\Flighting\\FeatureConfig\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RefreshCache",
+      "location": "\\Microsoft\\Windows\\Flighting\\OneSettings\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Monitoring",
+      "location": "\\Microsoft\\Windows\\Hotpatch\\",
+      "command": "%systemroot%\\system32\\cmd.exe /d /c %systemroot%\\system32\\hpatchmonTask.cmd",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "InputSettingsRestoreDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "LocalUserSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "MouseSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PenSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RemoteMouseSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RemotePenSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RemoteTouchpadSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "syncpensettings",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "TouchpadSyncDataAvailable",
+      "location": "\\Microsoft\\Windows\\input\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RestoreDevice",
+      "location": "\\Microsoft\\Windows\\InstallService\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ScanForUpdates",
+      "location": "\\Microsoft\\Windows\\InstallService\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ScanForUpdatesAsUser",
+      "location": "\\Microsoft\\Windows\\InstallService\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Synchronize Language Settings",
+      "location": "\\Microsoft\\Windows\\International\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "La57Cleanup",
+      "location": "\\Microsoft\\Windows\\Kernel\\",
+      "command": "%windir%\\system32\\la57setup.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Installation",
+      "location": "\\Microsoft\\Windows\\LanguageComponentsInstaller\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ReconcileLanguageResources",
+      "location": "\\Microsoft\\Windows\\LanguageComponentsInstaller\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "WindowsActionDialog",
+      "location": "\\Microsoft\\Windows\\Location\\",
+      "command": "%windir%\\System32\\WindowsActionDialog.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "WinSAT",
+      "location": "\\Microsoft\\Windows\\Maintenance\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Cellular",
+      "location": "\\Microsoft\\Windows\\Management\\Provisioning\\",
+      "command": "%windir%\\system32\\ProvTool.exe /turn 7 /source CellStateChangeTask",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Logon",
+      "location": "\\Microsoft\\Windows\\Management\\Provisioning\\",
+      "command": "%windir%\\system32\\ProvTool.exe /turn 5 /source LogonIdleTask",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "MapsToastTask",
+      "location": "\\Microsoft\\Windows\\Maps\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "AutomaticOfflineMemoryDiagnostic",
+      "location": "\\Microsoft\\Windows\\MemoryDiagnostic\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ProcessMemoryDiagnosticEvents",
+      "location": "\\Microsoft\\Windows\\MemoryDiagnostic\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "LPRemove",
+      "location": "\\Microsoft\\Windows\\MUI\\",
+      "command": "%windir%\\system32\\lpremove.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Mcbuilder",
+      "location": "\\Microsoft\\Windows\\MUI\\",
+      "command": "C:\\Windows\\System32\\mcbuilder.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SystemSoundsService",
+      "location": "\\Microsoft\\Windows\\Multimedia\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 4
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "NcsiIdentifyUserProxies",
+      "location": "\\Microsoft\\Windows\\Network Connectivity Status Indicator\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "WiFiTask",
+      "location": "\\Microsoft\\Windows\\NlaSvc\\",
+      "command": "%SystemRoot%\\System32\\WiFiTask.exe nla",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PCR Prediction Framework Firmware Update Task",
+      "location": "\\Microsoft\\Windows\\PCRPF\\",
+      "command": "%windir%\\system32\\rundll32.exe %windir%\\system32\\pcrpf.dll,NotifyFirmwareUpdateStaged",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ShowFeedbackToast",
+      "location": "\\Microsoft\\Windows\\PerformanceTrace\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "WhesvcToast",
+      "location": "\\Microsoft\\Windows\\PerformanceTrace\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Device Install Group Policy",
+      "location": "\\Microsoft\\Windows\\Plug and Play\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Device Install Reboot Required",
+      "location": "\\Microsoft\\Windows\\Plug and Play\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Sysprep Generalize Drivers",
+      "location": "\\Microsoft\\Windows\\Plug and Play\\",
+      "command": "%SystemRoot%\\System32\\drvinst.exe 6",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "AnalyzeSystem",
+      "location": "\\Microsoft\\Windows\\Power Efficiency Diagnostics\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "EduPrintProv",
+      "location": "\\Microsoft\\Windows\\Printing\\",
+      "command": "%windir%\\system32\\eduprintprov.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PrinterCleanupTask",
+      "location": "\\Microsoft\\Windows\\Printing\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Initialization",
+      "location": "\\Microsoft\\Windows\\ReFsDedupSvc\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "RegIdleBackup",
+      "location": "\\Microsoft\\Windows\\Registry\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "StartComponentCleanup",
+      "location": "\\Microsoft\\Windows\\Servicing\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PITRTask",
+      "location": "\\Microsoft\\Windows\\Setup\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SetupRecoveryDataTask",
+      "location": "\\Microsoft\\Windows\\Setup\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CreateObjectTask",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "FamilySafetyMonitor",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": "%windir%\\System32\\wpcmon.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "FamilySafetyRefreshTask",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "IndexerAutomaticMaintenance",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ThemesSyncedImageDownload",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UpdateUserPictureTask",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UpdateUserPictureTaskContained",
+      "location": "\\Microsoft\\Windows\\Shell\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SpaceAgentTask",
+      "location": "\\Microsoft\\Windows\\SpacePort\\",
+      "command": "%windir%\\system32\\SpaceAgent.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SpaceManagerTask",
+      "location": "\\Microsoft\\Windows\\SpacePort\\",
+      "command": "%windir%\\system32\\spaceman.exe /Work",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "MaintenanceTasks",
+      "location": "\\Microsoft\\Windows\\StateRepository\\",
+      "command": "%windir%\\system32\\rundll32.exe %windir%\\system32\\Windows.StateRepositoryClient.dll,StateRepositoryDoMaintenanceTasks",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Storage Tiers Management Initialization",
+      "location": "\\Microsoft\\Windows\\Storage Tiers Management\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "EnableLicenseAcquisition",
+      "location": "\\Microsoft\\Windows\\Subscription\\",
+      "command": "%SystemRoot%\\system32\\ClipRenew.exe -e",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "PowerGridForecastTask",
+      "location": "\\Microsoft\\Windows\\Sustainability\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SustainabilityTelemetry",
+      "location": "\\Microsoft\\Windows\\Sustainability\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ResPriStaticDbSync",
+      "location": "\\Microsoft\\Windows\\Sysmain\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "WsSwapAssessmentTask",
+      "location": "\\Microsoft\\Windows\\Sysmain\\",
+      "command": "%windir%\\system32\\rundll32.exe sysmain.dll,PfSvWsSwapAssessmentTask",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SR",
+      "location": "\\Microsoft\\Windows\\SystemRestore\\",
+      "command": "%windir%\\system32\\srtasks.exe ExecuteScheduledSPPCreation",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Interactive",
+      "location": "\\Microsoft\\Windows\\Task Manager\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "MsCtfMonitor",
+      "location": "\\Microsoft\\Windows\\TextServicesFramework\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ForceSynchronizeTime",
+      "location": "\\Microsoft\\Windows\\Time Synchronization\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SynchronizeTime",
+      "location": "\\Microsoft\\Windows\\Time Synchronization\\",
+      "command": "%windir%\\system32\\sc.exe start w32time task_started",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SynchronizeTimeZone",
+      "location": "\\Microsoft\\Windows\\Time Zone\\",
+      "command": "%windir%\\system32\\tzsync.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UPnPHostConfig",
+      "location": "\\Microsoft\\Windows\\UPnP\\",
+      "command": "sc.exe config upnphost start= auto",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Usb-Notifications",
+      "location": "\\Microsoft\\Windows\\USB\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "WiFiTask",
+      "location": "\\Microsoft\\Windows\\WCM\\",
+      "command": "%SystemRoot%\\System32\\WiFiTask.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "ResolutionHost",
+      "location": "\\Microsoft\\Windows\\WDI\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "BfeOnServiceStartTypeChange",
+      "location": "\\Microsoft\\Windows\\Windows Filtering Platform\\",
+      "command": "%windir%\\system32\\rundll32.exe bfe.dll,BfeOnServiceStartTypeChange",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "UpdateLibrary",
+      "location": "\\Microsoft\\Windows\\Windows Media Sharing\\",
+      "command": "\"%ProgramFiles%\\Windows Media Player\\wmpnscfg.exe\" ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Calibration Loader",
+      "location": "\\Microsoft\\Windows\\WindowsColorSystem\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Scheduled Start",
+      "location": "\\Microsoft\\Windows\\WindowsUpdate\\",
+      "command": "%systemroot%\\System32\\sc.exe start wuauserv",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CacheTask",
+      "location": "\\Microsoft\\Windows\\Wininet\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 4
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "CDSSync",
+      "location": "\\Microsoft\\Windows\\WlanSvc\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "MoProfileManagement",
+      "location": "\\Microsoft\\Windows\\WlanSvc\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Work Folders Logon Synchronization",
+      "location": "\\Microsoft\\Windows\\Work Folders\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Work Folders Maintenance Work",
+      "location": "\\Microsoft\\Windows\\Work Folders\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "NotificationTask",
+      "location": "\\Microsoft\\Windows\\WwanSvc\\",
+      "command": "%SystemRoot%\\System32\\WiFiTask.exe wwan",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "OobeDiscovery",
+      "location": "\\Microsoft\\Windows\\WwanSvc\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "XblGameSaveTask",
+      "location": "\\Microsoft\\XblGameSave\\",
+      "command": "%windir%\\System32\\XblGameSaveTask.exe standby",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Firefox Default Browser Agent 308046B0AF4A39CB",
+      "location": "\\Mozilla\\",
+      "command": "C:\\Program Files\\Mozilla Firefox\\default-browser-agent.exe do-task \"308046B0AF4A39CB\"",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "Autorun for Oscar S",
+      "location": "\\PowerToys\\",
+      "command": "C:\\Users\\Oscar S\\AppData\\Local\\PowerToys\\PowerToys.exe ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "Scheduled_Task",
+      "name": "SoftLandingCreativeManagementTask",
+      "location": "\\SoftLanding\\S-1-5-21-728411797-1289135455-1493451368-1001\\",
+      "command": " ",
+      "enabled": true,
+      "evidence": {
+        "state": 3
+      }
+    },
+    {
+      "type": "startup_folder",
+      "name": "Send til OneNote.lnk",
+      "location": "C:\\Users\\Oscar S\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\Send til OneNote.lnk",
+      "command": null,
+      "enabled": true,
+      "evidence": {
+        "extension": ".lnk"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AdobeUpdateService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AdobeUpdateService",
+      "command": "\"C:\\Program Files (x86)\\Common Files\\Adobe\\Adobe Desktop Common\\ElevationManager\\AdobeUpdateService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AMD Crash Defender Service",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AMD Crash Defender Service",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\amdfendr.inf_amd64_bea53a1d416fbcfa\\amdfendrsr.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AMD External Events Utility",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AMD External Events Utility",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\u0203303.inf_amd64_e5876a26758f154c\\B026363\\atiesrxx.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AmdPpkgSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AmdPpkgSvc",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\amdppkg.inf_amd64_560eeb9a923ac8eb\\AmdPpkgSvc.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AppXSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AppXSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k wsappx -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "AudioEndpointBuilder",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\AudioEndpointBuilder",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Audiosrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Audiosrv",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDAppSrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDAppSrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security App\\bdservicehost.exe\" \"settings/services/configs/bdappsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDAuxSrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDAuxSrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\bdservicehost.exe\" \"settings/services/configs/bdauxsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDProtSrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDProtSrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\bdservicehost.exe\" \"settings\\services\\configs\\bdprotsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "bdredline",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\bdredline",
+      "command": "\"C:\\Program Files\\Common Files\\Bitdefender\\SetupInformation\\Bitdefender RedLine\\bdredline.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "bdredline_agent",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\bdredline_agent",
+      "command": "\"C:\\Program Files\\Bitdefender Agent\\redline\\bdredline.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BDSafepaySrv",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BDSafepaySrv",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security App\\Safepay\\bdservicehost.exe\" \"settings/services/configs/bdsafepaysrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "bdvpnservice",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\bdvpnservice",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender VPN\\bdvpnservice.exe\" \"service\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BFE",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BFE",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "BrokerInfrastructure",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\BrokerInfrastructure",
+      "command": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "camsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\camsvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k osprivacy -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CDPSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CDPSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ClickToRunSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ClickToRunSvc",
+      "command": "\"C:\\Program Files\\Common Files\\Microsoft Shared\\ClickToRun\\OfficeClickToRun.exe\" /service",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CloudflareWARP",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CloudflareWARP",
+      "command": "\"C:\\Program Files\\Cloudflare\\Cloudflare WARP\\warp-svc.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CodexSandboxService.OpenAI.Codex",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CodexSandboxService.OpenAI.Codex",
+      "command": "\"C:\\Program Files\\WindowsApps\\OpenAI.Codex_26.915.4065.0_x64__2p2nqsd0c76g0\\app\\resources\\codex-windows-sandbox-service.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CoreMessagingRegistrar",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CoreMessagingRegistrar",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNoNetwork -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CryptSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CryptSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DcomLaunch",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DcomLaunch",
+      "command": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DeviceAssociationService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DeviceAssociationService",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Dhcp",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Dhcp",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DiagTrack",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack",
+      "command": "C:\\Windows\\System32\\svchost.exe -k utcsvc -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DispBrokerDesktopSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DispBrokerDesktopSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Dnscache",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Dnscache",
+      "command": "C:\\Windows\\system32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DolbyDAXAPI",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DolbyDAXAPI",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\dax3_swc_aposvc.inf_amd64_2d43ea2009b9f4a0\\DAX3API.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DPS",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DPS",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNoNetwork -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "DusmSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\DusmSvc",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p -s DusmSvc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "edgeupdate",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\edgeupdate",
+      "command": "\"C:\\Program Files (x86)\\Microsoft\\EdgeUpdate\\MicrosoftEdgeUpdate.exe\" /svc",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ELAN_Detection_Service",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ELAN_Detection_Service",
+      "command": "C:\\Windows\\System32\\ELAN_Detection_Service.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ElevocService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ElevocService",
+      "command": "C:\\Windows\\System32\\ElevocInstallDriver\\ElevocControlService.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "EventLog",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\EventLog",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "EventSystem",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\EventSystem",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalServiceRedirectionGuard -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Everything",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Everything",
+      "command": "\"C:\\Program Files\\Everything\\Everything.exe\" -svc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "FontCache",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\FontCache",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GameInputRedistService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GameInputRedistService",
+      "command": "\"C:\\Program Files\\Microsoft GameInput\\x64\\GameInputRedistService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GamingServices",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GamingServices",
+      "command": "\"C:\\Program Files\\WindowsApps\\Microsoft.GamingServices_38.117.18001.0_x64__8wekyb3d8bbwe\\GamingServices.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GamingServicesNet",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GamingServicesNet",
+      "command": "\"C:\\Program Files\\WindowsApps\\Microsoft.GamingServices_38.117.18001.0_x64__8wekyb3d8bbwe\\GamingServicesNet.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "gpsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\gpsvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k GPSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "IKEEXT",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\IKEEXT",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "InventorySvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\InventorySvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k InvSvcGroup -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "iphlpsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\iphlpsvc",
+      "command": "C:\\Windows\\System32\\svchost.exe -k NetSvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LanmanServer",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LanmanWorkstation",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation",
+      "command": "C:\\Windows\\System32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LenovoFnAndFunctionKeys",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LenovoFnAndFunctionKeys",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\lenovofnandfunctionkeys.inf_amd64_5e21bf389d23855a\\LenovoUtilityService.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LenovoProcessManagement",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LenovoProcessManagement",
+      "command": "C:\\Windows\\System32\\drivers\\LNVDispatcherService.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LenovoVantageService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LenovoVantageService",
+      "command": "\"C:\\Program Files (x86)\\Lenovo\\VantageService\\\\5.1.2609.9\\LenovoVantageService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "LITSSVC",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\LITSSVC",
+      "command": "C:\\Windows\\System32\\LNBITSSvc.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "MapsBroker",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\MapsBroker",
+      "command": "C:\\Windows\\System32\\svchost.exe -k NetworkService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "MDCoreSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\MDCoreSvc",
+      "command": "\"C:\\Program Files\\Windows Defender\\MpDefenderCoreService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "mpssvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\mpssvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNoNetworkFirewall -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "nsi",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\nsi",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "PcaSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\PcaSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Power",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Power",
+      "command": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ProductAgentService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ProductAgentService",
+      "command": "\"C:\\Program Files\\Bitdefender Agent\\ProductAgentService.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ProfSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ProfSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k UserProfileService -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "RpcEptMapper",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\RpcEptMapper",
+      "command": "C:\\Windows\\system32\\svchost.exe -k RPCSS -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "RpcSs",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\RpcSs",
+      "command": "C:\\Windows\\system32\\svchost.exe -k rpcss -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "RtkAudioUniversalService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\RtkAudioUniversalService",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\realtekservice.inf_amd64_e747b8bdadfd6fe3\\RtkAudUService64.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "RtkBtManServ",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\RtkBtManServ",
+      "command": "C:\\Windows\\System32\\DriverStore\\FileRepository\\rtkbtfilter.inf_amd64_11c43d8cdd0436a1\\RtkBtManServ.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SamSs",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SamSs",
+      "command": "C:\\Windows\\system32\\lsass.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Schedule",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Schedule",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SENS",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SENS",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcsRedirectionGuard -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "ShellHWDetection",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\ShellHWDetection",
+      "command": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Spooler",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Spooler",
+      "command": "C:\\Windows\\System32\\spoolsv.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "sppsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\sppsvc",
+      "command": "C:\\Windows\\system32\\sppsvc.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Start11",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Start11",
+      "command": "\"C:\\Program Files (x86)\\Stardock\\Start11\\Start11Srv.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "StateRepository",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\StateRepository",
+      "command": "C:\\Windows\\system32\\svchost.exe -k appmodel -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "StiSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\StiSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k imgsvc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "StorSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\StorSvc",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SysMain",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SysMain",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Sysmon",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Sysmon",
+      "command": "C:\\Windows\\Sysmon.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "SystemEventsBroker",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\SystemEventsBroker",
+      "command": "C:\\Windows\\system32\\svchost.exe -k DcomLaunch -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "TextInputManagementService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\TextInputManagementService",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Themes",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Themes",
+      "command": "C:\\Windows\\System32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "TrkWks",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\TrkWks",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UDCService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UDCService",
+      "command": "C:\\Windows\\System32\\drivers\\Lenovo\\udc\\Service\\UDClientService.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UPDATESRV",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UPDATESRV",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\updatesrv.exe\" /service",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UserManager",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UserManager",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "UsoSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\UsoSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMAuthdService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMAuthdService",
+      "command": "\"C:\\Program Files\\VMware\\VMware Workstation\\vmware-authd.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMnetDHCP",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMnetDHCP",
+      "command": "C:\\Windows\\system32\\vmnetdhcp.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMUSBArbService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMUSBArbService",
+      "command": "\"C:\\Program Files (x86)\\Common Files\\VMware\\USB\\vmware-usbarbitrator64.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VMware NAT Service",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VMware NAT Service",
+      "command": "C:\\Windows\\system32\\vmnat.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VSS",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VSS",
+      "command": "C:\\Windows\\system32\\vssvc.exe",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "VSSERV",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\VSSERV",
+      "command": "\"C:\\Program Files\\Bitdefender\\Bitdefender Security\\bdservicehost.exe\" \"settings/services/configs/bdshieldsrv_config.json\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WazuhSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WazuhSvc",
+      "command": "\"C:\\Program Files (x86)\\ossec-agent\\wazuh-agent.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WbioSrvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WbioSrvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k WbioSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Wcmsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Wcmsvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted -p -s Wcmsvc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "whesvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\whesvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k whesvc -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "Winmgmt",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Winmgmt",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WlanSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WlanSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p -s Wlansvc",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WpnService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WpnService",
+      "command": "C:\\Windows\\system32\\svchost.exe -k netsvcs -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WSAIFabricSvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WSAIFabricSvc",
+      "command": "C:\\Windows\\system32\\svchost.exe -k WSAIFabricSvcGroup -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "wscsvc",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\wscsvc",
+      "command": "C:\\Windows\\System32\\svchost.exe -k LocalServiceNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WSearch",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WSearch",
+      "command": "C:\\Windows\\system32\\SearchIndexer.exe /Embedding",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WSLService",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WSLService",
+      "command": "\"C:\\Program Files\\WSL\\wslservice.exe\"",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "cbdhsvc_ca5f2",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\cbdhsvc_ca5f2",
+      "command": "C:\\Windows\\system32\\svchost.exe -k ClipboardSvcGroup -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "CDPUserSvc_ca5f2",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\CDPUserSvc_ca5f2",
+      "command": "C:\\Windows\\system32\\svchost.exe -k UnistackSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "webthreatdefusersvc_ca5f2",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\webthreatdefusersvc_ca5f2",
+      "command": "C:\\Windows\\system32\\svchost.exe -k LocalSystemNetworkRestricted -p",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "WpnUserService_ca5f2",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\WpnUserService_ca5f2",
+      "command": "C:\\Windows\\system32\\svchost.exe -k UnistackSvcGroup",
+      "enabled": true,
+      "evidence": {
+        "active": "Running"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GoogleUpdaterInternalService156.0.8067.0",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GoogleUpdaterInternalService156.0.8067.0",
+      "command": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\156.0.8067.0\\updater.exe\" --system --windows-service --service=update-internal",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    },
+    {
+      "type": "Service",
+      "name": "GoogleUpdaterService156.0.8067.0",
+      "location": "HKLM:\\SYSTEM\\CurrentControlSet\\Services\\GoogleUpdaterService156.0.8067.0",
+      "command": "\"C:\\Program Files (x86)\\Google\\GoogleUpdater\\156.0.8067.0\\updater.exe\" --system --windows-service --service=update",
+      "enabled": true,
+      "evidence": {
+        "active": "Stopped"
+      }
+    }
+  ],
+  "errors": []
+}
