@@ -37,6 +37,7 @@ def windows():
         "scheduled_tasks": BASE_DIR / "Windows" / "Scheduled_Task_Scan.ps1",
         "startup_folders": BASE_DIR / "Windows" / "startup_folders_scan.ps1",
         "services": BASE_DIR / "Windows" / "services_scan.ps1",
+        "wmi_persistence": BASE_DIR / "Windows" / "wmi_subscription_scan.ps1",
     }
 
     scan_results = {
