@@ -1,6 +1,3 @@
-# note this is unfinished code DEBUGGING WILL BE NEED DO NOT RUN!
-# todo fix bugs.
-
 [CmdletBinding()]
 param()
 
