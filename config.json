@@ -5,7 +5,9 @@
         "scheduled_tasks": true,
         "startup_folders": true,
         "services": true,
-        "wmi_persistence": true
+        "wmi_persistence": true,
+        "group_policy_run_keys": true,
+        "appinit_dlls_scan": true
     },
     "output": {
         "format": "json",

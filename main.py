@@ -38,6 +38,8 @@ def windows():
         "startup_folders": BASE_DIR / "Windows" / "startup_folders_scan.ps1",
         "services": BASE_DIR / "Windows" / "services_scan.ps1",
         "wmi_persistence": BASE_DIR / "Windows" / "wmi_subscription_scan.ps1",
+        "group_policy_run_keys": BASE_DIR / "Windows" / "group_policy_run_keys.ps1",
+        "appinit_dlls_scan": BASE_DIR / "Windows" / "appinit_dlls_scan.ps1",
     }
 
     scan_results = {

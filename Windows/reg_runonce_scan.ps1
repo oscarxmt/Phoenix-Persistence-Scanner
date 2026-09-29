@@ -33,13 +33,13 @@ foreach($item in $Registry_Startup_RunKeys) {
     else {
         $errors += [PSCustomObject]@{
             location = $item
-            message  = "Registry paths not found."
+            message  = "Registry RunOnce paths not found."
         }
     }
 }
 
 [PSCustomObject]@{
-    check   = "startup_folders"
+    check   = "registry_run_once_key"
     results = @($results)
     errors  = @($errors)
 } | ConvertTo-Json -Depth 5
