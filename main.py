@@ -6,7 +6,6 @@ import argparse
 import json
 import subprocess
 from pathlib import Path
-#import re
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -34,6 +33,7 @@ def windows():
         return
     checks = {
         "registry_run_keys": BASE_DIR / "Windows" / "reg_startup_scan.ps1",
+        "registry_runonce_keys": BASE_DIR / "Windows" / "reg_runonce_scan.ps1",
         "scheduled_tasks": BASE_DIR / "Windows" / "Scheduled_Task_Scan.ps1",
         "startup_folders": BASE_DIR / "Windows" / "startup_folders_scan.ps1",
         "services": BASE_DIR / "Windows" / "services_scan.ps1",
@@ -93,17 +93,12 @@ def windows():
 
     print(f"[+] Scan results saved to {output_file}")
 
-def json_parser():
-    json_path = BASE_DIR / "config.json"
-    print(f"[!] Parsing config.json... Location: {json_path}")
-    exit()
-
 def main():
     parser = argparse.ArgumentParser(description="Persistence Scanner")
     parser.parse_args()
 
     current_os = platform.system()
-    print("Made by Oscarxmt! :3")
+    print("Made by OscarXMT!")
     print("Follow my socials: x.com/oscarxmt github.com/oscarxmt")
     print(f"[-] Detected operating system: {current_os}")
     print("<" + "=" * 40 + ">")

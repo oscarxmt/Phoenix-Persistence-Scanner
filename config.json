@@ -1,6 +1,7 @@
 {
     "checks": {
         "registry_run_keys": true,
+        "registry_runonce_keys": true,
         "scheduled_tasks": true,
         "startup_folders": true,
         "services": true,
