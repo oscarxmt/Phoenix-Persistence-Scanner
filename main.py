@@ -40,6 +40,7 @@ def windows():
         "wmi_persistence": BASE_DIR / "Windows" / "wmi_subscription_scan.ps1",
         "group_policy_run_keys": BASE_DIR / "Windows" / "group_policy_run_keys.ps1",
         "appinit_dlls_scan": BASE_DIR / "Windows" / "appinit_dlls_scan.ps1",
+        "winlogon_scan": BASE_DIR / "Windows" / "winlogon_scan.ps1"
     }
 
     scan_results = {
