@@ -8,7 +8,8 @@
         "wmi_persistence": true,
         "group_policy_run_keys": true,
         "appinit_dlls_scan": true,
-        "winlogon_scan": true
+        "winlogon_scan": true,
+        "activesetup_scan": true
     },
     "output": {
         "format": "json",
