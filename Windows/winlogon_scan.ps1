@@ -14,28 +14,33 @@ $paths = @(
     "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon",
     "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon"
 )
+$valueNames = @(
+    "Shell",
+    "Userinit",
+    "Taskman",
+    "AppSetup",
+    "UserinitMprLogonScript",
+    "GinaDLL"
+)
+
 foreach ($item in $paths) {
     try {
-    if (Test-Path $item) {
-        $winlogonValue = (Get-ItemProperty -Path $item -Name "AppInit_DLLs" -ErrorAction Stop).AppInit_DLLs
-        if ($winlogonValue) {
-            $results += [ScanFinding]::new("winlogon", "Winlogon_registry", $item, $winlogonValue, $true, @{ hive = $item })
-        }
-        else{
-            $errors += [PSCustomObject]@{
-                location = $item
-                message = "Winlogon present but empty."
+        if (Test-Path $item) {
+            $properties = Get-ItemProperty -Path $item -ErrorAction Stop
+            foreach ($valueName in $valueNames) {
+                $property = $properties.PSObject.Properties[$valueName]
+                if ($null -ne $property -and -not [string]::IsNullOrWhiteSpace([string]$property.Value)) {
+                    $results += [ScanFinding]::new("winlogon", $valueName, $item, [string]$property.Value, $true, @{ hive = $item; value_name = $valueName })
+                }
             }
         }
-    }
-    else {
-        $errors += [PSCustomObject]@{
-            location = $item
-            message = "Registry key path not found."
+        else {
+            $errors += [PSCustomObject]@{
+                location = $item
+                message = "Registry key path not found."
+            }
         }
-    }
-    }
-    catch {
+    } catch {
         $errors += [PSCustomObject]@{
             location = $item
             message = "Could not read Winlogon values: $($_.Exception.Message)"
