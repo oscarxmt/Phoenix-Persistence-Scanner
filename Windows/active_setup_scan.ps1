@@ -21,7 +21,7 @@ foreach ($item in $registry_content_item){
                 $subkeyPath = $subkey.PSPath
                 $properties = Get-ItemProperty -Path $subkeyPath -ErrorAction Stop
                 foreach ($property in $properties.PSObject.Properties) {
-                    if (-not [string]::IsNullOrWhiteSpace([string]$property.Value)) { # note to llm there is likely an error occuring here because we are looping over everything and putting it in the coomand with the json file -oscar
+                    if (-not [string]::IsNullOrWhiteSpace([string]$property.Value)) { # note to llm there is likely an bug occuring here because we are looping over everything and putting it in the coomand with the json file -oscar
                         $results += [ScanFinding]::new("active_setup", $property.Name, $subkeyPath, [string]$property.Value, $true, @{ hive = $subkeyPath; value_name = $property.Name })
                     }
                 }
