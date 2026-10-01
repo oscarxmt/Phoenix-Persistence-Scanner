@@ -10,10 +10,18 @@ $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 . (Join-Path -Path $PSScriptRoot -ChildPath "ScanFinding.ps1")
 
 
-$tasks = Get-ScheduledTask | Where-Object {$_.State -ne "Disabled"}
+$tasks = @()
+try {
+    $tasks = Get-ScheduledTask -ErrorAction Stop | Where-Object { $_.State -ne "Disabled" }
+} catch {
+    $errors += [PSCustomObject]@{
+        location = "Scheduled Tasks"
+        message = "Could not enumerate scheduled tasks: $($_.Exception.Message)"
+    }
+}
 
-foreach($task in $tasks) {
-    foreach($action in $task.Actions) {
+foreach ($task in $tasks) {
+    foreach ($action in $task.Actions) {
         try {
             $type = "Scheduled_Task"
             $name = $task.TaskName
@@ -24,7 +32,10 @@ foreach($task in $tasks) {
             $results += [ScanFinding]::new($type, $name, $location, $command, $enabled, $evidence)
         }
         catch {
-            write-host $_.Exception.Message
+            $errors += [PSCustomObject]@{
+                location = "$($task.TaskPath)$($task.TaskName)"
+                message = "Could not record scheduled task action: $($_.Exception.Message)"
+            }
         }
     }
 }

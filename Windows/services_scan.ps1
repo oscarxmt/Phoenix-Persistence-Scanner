@@ -9,10 +9,15 @@ $outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
 $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 . (Join-Path -Path $PSScriptRoot -ChildPath "ScanFinding.ps1")
 
-$Services_List = Get-CimInstance -ClassName Win32_Service | Where-Object { $_.StartMode -eq "Auto" } | Select-Object Name, PathName, StartMode, State
-
-if(-not (Test-Path $outputDir)) {
-    Write-Host "[!] Could not find output directory. "
+try {
+    $Services_List = Get-CimInstance -ClassName Win32_Service -ErrorAction Stop | Where-Object { $_.StartMode -eq "Auto" } | Select-Object Name, PathName, StartMode, State
+}
+catch {
+    $Services_List = @()
+    $errors += [PSCustomObject]@{
+        location = "Win32_Service"
+        message = "Could not enumerate services: $($_.Exception.Message)"
+    }
 }
 
 foreach($svc in $Services_List) {
@@ -26,7 +31,10 @@ foreach($svc in $Services_List) {
         $results += [ScanFinding]::new($type, $name, $location, $command, $enabled, $evidence)
     }
     catch {
-            write-host $_.Exception.Message
+        $errors += [PSCustomObject]@{
+            location = $svc.Name
+            message = "Could not record service: $($_.Exception.Message)"
+        }
     }
 }
 

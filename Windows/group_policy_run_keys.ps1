@@ -18,13 +18,10 @@ $registry_content_item = @(
 foreach($item in $registry_content_item) {
     if (Test-Path $item) {
         try {
-            $registry_policies_run = Get-Item -Path $item
-            if ($registry_policies_run.Property.Count -gt 0){
-                    foreach ($property in $registry_content_item.Property) {
-                        $commandValue = $registry_content_item.GetValue($property)
-                        $results += [ScanFinding]::new("registry_run_key", $property, $item, $commandValue, $true, @{ hive = $item })
-                }
-
+            $registryPoliciesRun = Get-Item -Path $item -ErrorAction Stop
+            foreach ($property in $registryPoliciesRun.Property) {
+                $commandValue = $registryPoliciesRun.GetValue($property)
+                $results += [ScanFinding]::new("group_policy_run_key", $property, $item, [string]$commandValue, $true, @{ hive = $item })
             }
         }
         catch{
@@ -37,7 +34,7 @@ foreach($item in $registry_content_item) {
     else {
         $errors += [PSCustomObject]@{
             location = $item
-            message = "Registry group policy keys not found. You are likely not on a corporate computer!"
+            message = "Registry group policy Run key was not found."
         }
     }
 }

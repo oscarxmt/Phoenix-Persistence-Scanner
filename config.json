@@ -14,9 +14,5 @@
     "output": {
         "format": "json",
         "file": "./data/scan_results.json"
-    },
-    "scan_settings": {
-        "flag_unsigned_binaries": true,
-        "flag_recent_hours": 24
     }
 }

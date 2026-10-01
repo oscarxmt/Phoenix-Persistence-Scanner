@@ -48,4 +48,4 @@ if (-not (Test-Path $outputDir)) {
     check   = "Active_Setup"
     results = @($results)
     errors  = @($errors)
-} | ConvertTo-Json
+} | ConvertTo-Json -Depth 5
