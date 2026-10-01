@@ -9,32 +9,38 @@ $outputDir   = Join-Path -Path $projectRoot -ChildPath "data"
 $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 . (Join-Path -Path $PSScriptRoot -ChildPath "ScanFinding.ps1")
 
+$registryPath = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components"
 
-$registry_content_item = @(
-    "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components"
-)
-
-foreach ($item in $registry_content_item){
-    if (Test-Path $item){
+if (Test-Path $registryPath) {
+    foreach ($key in Get-ChildItem -Path $registryPath -ErrorAction Stop) {
         try {
-            foreach ($subkey in Get-ChildItem -Path $item -ErrorAction Stop) {
-                $subkeyPath = $subkey.PSPath
-                $properties = Get-ItemProperty -Path $subkeyPath -ErrorAction Stop
-                foreach ($property in $properties.PSObject.Properties) {
-                    if (-not [string]::IsNullOrWhiteSpace([string]$property.Value)) { # note to llm there is likely an bug occuring here because we are looping over everything and putting it in the coomand with the json file -oscar
-                        $results += [ScanFinding]::new("active_setup", $property.Name, $subkeyPath, [string]$property.Value, $true, @{ hive = $subkeyPath; value_name = $property.Name })
+            $keyPath = $key.PSPath
+            $stubPath = $key.GetValue("StubPath", $null)
+            $version  = $key.GetValue("Version", $null)
+            $name     = $key.GetValue("(LocalizedName)", $null)
+            $installed = $key.GetValue("IsInstalled", $null)
+
+            if (-not [string]::IsNullOrWhiteSpace([string]$stubPath)) {
+                $results += [ScanFinding]::new("active_setup", "StubPath", $keyPath, [string]$stubPath, $true,
+                    @{
+                        hive         = $keyPath
+                        value_name   = "StubPath"
+                        version      = [string]$version
+                        localized_name = [string]$name
+                        is_installed = $installed
                     }
-                }
+                )
             }
         }
         catch {
             $errors += [PSCustomObject]@{
-                location = $item
-                message = "Could not read Active Setup values: $($_.Exception.Message)"
+                location = $key.PSPath
+                message  = "Could not read Active Setup key: $($_.Exception.Message)"
             }
         }
     }
 }
+
 if (-not (Test-Path $outputDir)) {
     New-Item -ItemType Directory -Path $outputDir | Out-Null
 }
