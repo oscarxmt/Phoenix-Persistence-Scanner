@@ -10,7 +10,8 @@
         "appinit_dlls_scan": true,
         "winlogon_scan": true,
         "activesetup_scan": true,
-        "ifeo_scan.ps1": true
+        "ifeo_scan": true,
+        "com_hjiacking_scan": true
     },
     "output": {
         "format": "json",
