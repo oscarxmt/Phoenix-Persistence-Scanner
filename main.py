@@ -42,6 +42,7 @@ def windows():
         "appinit_dlls_scan": BASE_DIR / "Windows" / "appinit_dlls_scan.ps1",
         "winlogon_scan": BASE_DIR / "Windows" / "winlogon_scan.ps1",
         "activesetup_scan": BASE_DIR / "Windows" / "activesetup_scan.ps1",
+        "ifeo_scan.ps1": BASE_DIR / "Windows" / "ifeo_scan.ps1",
     }
 
     scan_results = {

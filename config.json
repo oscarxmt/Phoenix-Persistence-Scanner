@@ -9,7 +9,8 @@
         "group_policy_run_keys": true,
         "appinit_dlls_scan": true,
         "winlogon_scan": true,
-        "activesetup_scan": true
+        "activesetup_scan": true,
+        "ifeo_scan.ps1": true
     },
     "output": {
         "format": "json",
