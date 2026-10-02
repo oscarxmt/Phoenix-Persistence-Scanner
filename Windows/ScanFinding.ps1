@@ -1,4 +1,4 @@
-# ScanFinding.ps1 — save this once, in a shared location
+# Class for saving the scans findings :)
 class ScanFinding {
     [string]$type
     [string]$name
