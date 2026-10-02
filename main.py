@@ -43,7 +43,7 @@ def windows():
         "winlogon_scan": BASE_DIR / "Windows" / "winlogon_scan.ps1",
         "activesetup_scan": BASE_DIR / "Windows" / "activesetup_scan.ps1",
         "ifeo_scan": BASE_DIR / "Windows" / "ifeo_scan.ps1",
-        "com_hjiacking_scan": BASE_DIR / "Windows" / "com_hjiacking_scan.ps1",
+        "com_hijacking_scan": BASE_DIR / "Windows" / "com_hijacking_scan.ps1",
     }
 
     scan_results = {
