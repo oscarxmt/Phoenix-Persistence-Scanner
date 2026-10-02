@@ -65,13 +65,13 @@ The Python runner uses only the standard library. Several checks depend on Windo
 Clone the repository, open a terminal in its directory, and run:
 
 ```powershell
-py .\main.py
+python3 .\main.py
 ```
 
-You can also run the script from another working directory by providing its path:
+You can also run the script from another working directory by providing its full path:
 
 ```powershell
-py C:\path\to\Phoenix-Persistance-Scanner\main.py
+python3 C:\path\to\Phoenix-Persistance-Scanner\main.py
 ```
 
 The runner locates scripts and configuration relative to `main.py`, not the current directory. By default, the combined report is saved to `data/scan_results.json`.
