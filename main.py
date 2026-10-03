@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Coded by OscarXMT
+
 
 import platform
 import os
