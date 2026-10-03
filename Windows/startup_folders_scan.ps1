@@ -8,7 +8,7 @@ $currentUserStartupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\St
 $allUsersStartupPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
 
 if (Test-Path $currentUserStartupPath) {
-    $Current_User_Startup = Get-ChildItem -Path $currentUserStartupPath
+    $Current_User_Startup = Get-ChildItem -LiteralPath $currentUserStartupPath -Force
 }
 else {
     $Current_User_Startup = @()
@@ -19,7 +19,7 @@ else {
 }
 
 if (Test-Path $allUsersStartupPath) {
-    $All_Users_Startup = Get-ChildItem -Path $allUsersStartupPath
+    $All_Users_Startup = Get-ChildItem -LiteralPath $allUsersStartupPath -Force
 }
 else {
     $All_Users_Startup = @()

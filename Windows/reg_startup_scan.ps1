@@ -13,6 +13,9 @@ $Registry_Startup_RunKeys = @(
     "Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run",
     "Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run"
 )
+if ([Environment]::Is64BitOperatingSystem) {
+    $Registry_Startup_RunKeys += "Registry::HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Run"
+}
 
 foreach ($item in $Registry_Startup_RunKeys) {
     if (Test-Path $item) {

@@ -12,8 +12,9 @@ $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 $registryPath = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options"
 
 
-if (Test-Path $registryPath) {
-    foreach ($key in Get-ChildItem -Path $registryPath -ErrorAction Stop) {
+try {
+    if (Test-Path -LiteralPath $registryPath -ErrorAction Stop) {
+        foreach ($key in @(Get-ChildItem -LiteralPath $registryPath -ErrorAction Stop)) {
         try {
             $keyPath = $key.PSPath
             $debugger = $key.GetValue("Debugger", $null)
@@ -32,6 +33,12 @@ if (Test-Path $registryPath) {
                 message  = "Could not read IFEO key: $($_.Exception.Message)"
             }
         }
+        }
+    }
+} catch {
+    $errors += [PSCustomObject]@{
+        location = $registryPath
+        message = "Could not enumerate IFEO keys: $($_.Exception.Message)"
     }
 }
 

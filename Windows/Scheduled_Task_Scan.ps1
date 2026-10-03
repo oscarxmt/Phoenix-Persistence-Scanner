@@ -26,9 +26,17 @@ foreach ($task in $tasks) {
             $type = "Scheduled_Task"
             $name = $task.TaskName
             $location = $task.TaskPath
-            $command = "$($action.Execute) $($action.Arguments)"
             $enabled=($task.State -ne "Disabled")
             $evidence=@{ state = $task.State }
+            if ($null -ne $action.PSObject.Properties['ClassId']) {
+                $command = [string]$action.ClassId
+                $evidence.action_type = "ComHandler"
+                $evidence.class_id = [string]$action.ClassId
+                $evidence.data = [string]$action.Data
+            } else {
+                $command = "$($action.Execute) $($action.Arguments)"
+                $evidence.action_type = "Exec"
+            }
             $results += [ScanFinding]::new($type, $name, $location, $command, $enabled, $evidence)
         }
         catch {
