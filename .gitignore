@@ -1,1 +1,3 @@
-git rm --cached data/scan_results.json
+git add .gitignore
+git commit -m "stop tracking scan output"
+git push
