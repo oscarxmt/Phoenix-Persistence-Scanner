@@ -3,7 +3,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 REPORT_PATH = BASE_DIR / "data" / "report.txt"
 
-
+# I WILL COUNTINE THIS HERE AND THEN IM DONE WITH THIS PROJECT LOL FML
 def load_report(report_path=REPORT_PATH):
     return Path(report_path).read_text(encoding="utf-8")
 

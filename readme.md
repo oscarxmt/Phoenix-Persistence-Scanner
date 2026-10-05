@@ -98,7 +98,7 @@ Every run adds a new section. If you regenerate the base report with
 Run `py .\main.py` first if you have not saved a scan yet.
 
 The normal workflow is now one command: `py .\main.py` runs the Windows checks,
-saves JSON, keeps or creates the complete human-readable `data/report.txt`, and
+saves JSON, regenerates the complete human-readable `data/report.txt`, and
 appends the newest rule results to `data/risk_report.txt`. The optional `llm.py`
 file is not run automatically until a local model provider is configured. It
 exposes `load_report()` and an `analyze_report()` hook, but does not download a
