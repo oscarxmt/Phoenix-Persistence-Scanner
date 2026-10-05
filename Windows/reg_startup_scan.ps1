@@ -18,9 +18,9 @@ if ([Environment]::Is64BitOperatingSystem) {
 }
 
 foreach ($item in $Registry_Startup_RunKeys) {
-    if (Test-Path $item) {
-        try {
-            $registry_content_item = Get-Item -Path $item
+    try {
+        if (Test-Path -LiteralPath $item -ErrorAction Stop) {
+            $registry_content_item = Get-Item -LiteralPath $item -ErrorAction Stop
             if ($registry_content_item.Property.Count -gt 0) {
                 foreach ($property in $registry_content_item.Property) {
                     $commandValue = $registry_content_item.GetValue($property)
@@ -28,17 +28,17 @@ foreach ($item in $Registry_Startup_RunKeys) {
                 }
             }
         }
-        catch {
+        else {
             $errors += [PSCustomObject]@{
                 location = $item
-                message  = $_.Exception.Message
+                message  = "Registry path not found."
             }
         }
     }
-    else {
+    catch {
         $errors += [PSCustomObject]@{
             location = $item
-            message  = "Registry path not found."
+            message = $_.Exception.Message
         }
     }
 }

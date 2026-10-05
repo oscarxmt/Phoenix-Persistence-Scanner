@@ -16,25 +16,24 @@ $registry_content_item = @(
 )
 
 foreach($item in $registry_content_item) {
-    if (Test-Path $item) {
-        try {
-            $registryPoliciesRun = Get-Item -Path $item -ErrorAction Stop
+    try {
+        if (Test-Path -LiteralPath $item -ErrorAction Stop) {
+            $registryPoliciesRun = Get-Item -LiteralPath $item -ErrorAction Stop
             foreach ($property in $registryPoliciesRun.Property) {
                 $commandValue = $registryPoliciesRun.GetValue($property)
                 $results += [ScanFinding]::new("group_policy_run_key", $property, $item, [string]$commandValue, $true, @{ hive = $item })
             }
         }
-        catch{
+        else {
             $errors += [PSCustomObject]@{
-            location = $item
-            message  = $_.Exception.Message
+                location = $item
+                message = "Registry group policy Run key was not found."
             }
         }
-    }
-    else {
+    } catch {
         $errors += [PSCustomObject]@{
             location = $item
-            message = "Registry group policy Run key was not found."
+            message = $_.Exception.Message
         }
     }
 }

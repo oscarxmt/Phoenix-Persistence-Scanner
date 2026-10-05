@@ -3,12 +3,19 @@ import re
 import subprocess
 from pathlib import Path
 from collections import defaultdict
+from main import json_config, output_path
 
 BASE_DIR = Path(__file__).resolve().parent
-RESULTS_DIR = BASE_DIR / "data" / "scan_results.json"
 REPORT_PATH = BASE_DIR / "data" / "report.txt"
 
-# CODE DOESNT WORK DO NOT RUN CURRENTLY
+EXTENSIONS = "exe|dll|sys|ocx|scr|cpl|drv|efi|cat|ps1|psm1|psd1|msi|msp"
+PATH_PATTERN = re.compile(
+    rf"""["'](?P<quoted>(?:[A-Za-z]:\\|\\\\|%[^%]+%\\)[^"']+?\.(?:{EXTENSIONS}))["']"""
+    rf"""|(?P<unquoted>(?:[A-Za-z]:\\|\\\\|%[^%]+%\\)[^"'<>|\r\n]*?\.(?:{EXTENSIONS}))(?=$|[\s"',;])""",
+    re.IGNORECASE,
+)
+
+
 def format_finding(finding):
     ftype = finding['type']
     name = finding.get('name') or '(unnamed)'
@@ -48,16 +55,10 @@ def format_signature(signature):
     return f"  - {label} ({status}): {path}{details}"
 
 
-def verify_binaries():
-    with RESULTS_DIR.open("r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    extensions = "exe|dll|sys|ocx|scr|cpl|drv|efi|cat|ps1|psm1|psd1|msi|msp"
-    path_pattern = re.compile(
-        rf"""["'](?P<quoted>(?:[A-Za-z]:\\|\\\\|%[^%]+%\\)[^"']+?\.(?:{extensions}))["']"""
-        rf"""|(?P<unquoted>(?:[A-Za-z]:\\|\\\\|%[^%]+%\\)[^"'<>|\r\n]*?\.(?:{extensions}))""",
-        re.IGNORECASE,
-    )
+def verify_binaries(data=None):
+    if data is None:
+        with output_path(json_config()).open("r", encoding="utf-8") as f:
+            data = json.load(f)
 
     def strings_in(value):
         if isinstance(value, str):
@@ -70,8 +71,8 @@ def verify_binaries():
                 yield from strings_in(nested_value)
 
     binary_paths = {}
-    for text in strings_in(data):
-        for match in path_pattern.finditer(text):
+    for text in strings_in(data.get("results", [])):
+        for match in PATH_PATTERN.finditer(text):
             path = match.group("quoted") or match.group("unquoted")
             binary_paths.setdefault(path.casefold(), path)
 
@@ -94,18 +95,19 @@ $results = foreach ($path in $paths) {
     $resolvedPath = [Environment]::ExpandEnvironmentVariables([string]$path)
     try {
         if (-not (Test-Path -LiteralPath $resolvedPath -PathType Leaf -ErrorAction Stop)) {
-            [PSCustomObject]@{ path = $path; error = "File does not exist" }
+            [PSCustomObject]@{ original_path = $path; path = $resolvedPath; error = "File does not exist" }
             continue
         }
         $signature = Get-AuthenticodeSignature -LiteralPath $resolvedPath -ErrorAction Stop
         [PSCustomObject]@{
+            original_path = $path
             path = $resolvedPath
             status = $signature.Status.ToString()
             signer = if ($signature.SignerCertificate) { $signature.SignerCertificate.Subject } else { $null }
             message = $signature.StatusMessage
         }
     } catch {
-        [PSCustomObject]@{ path = $resolvedPath; error = $_.Exception.Message }
+        [PSCustomObject]@{ original_path = $path; path = $resolvedPath; error = $_.Exception.Message }
     }
 }
 ConvertTo-Json -InputObject @($results) -Depth 3 -Compress
@@ -130,7 +132,7 @@ ConvertTo-Json -InputObject @($results) -Depth 3 -Compress
 
 def main():
     print("[!] Generating report...")
-    with open(RESULTS_DIR, "r") as f:
+    with output_path(json_config()).open("r", encoding="utf-8") as f:
         data = json.load(f)
 
     findings = data["results"]
@@ -139,13 +141,25 @@ def main():
     for finding in findings:
         grouped[finding["type"]].append(finding)
 
-    binary_signatures = verify_binaries()
+    try:
+        binary_signatures = verify_binaries(data)
+    except (OSError, RuntimeError) as error:
+        binary_signatures = []
+        data.setdefault("errors", []).append({"check": "binary_signatures", "message": str(error)})
 
     report_lines = []
     for scan_type, items in grouped.items():
         report_lines.append(f"\n=== {scan_type} ({len(items)} findings) ===\n")
         for finding in items:
             report_lines.append(f"  - {format_finding(finding)}\n")
+            if finding.get("risk") and finding["risk"].get("verdict") == "suspicious":
+                risk = finding["risk"]
+                report_lines.append(f"    Risk: {risk['verdict']}\n")
+                report_lines.extend(
+                    f"      - {reason}\n"
+                    for reason in risk.get("reasons", [])
+                    if reason != "No binary signatures were checked"
+                )
 
     if binary_signatures:
         report_lines.append(
@@ -154,8 +168,14 @@ def main():
         report_lines.extend(
             f"{format_signature(signature)}\n" for signature in binary_signatures
         )
+    if data.get("errors"):
+        report_lines.append(f"\n=== Scan errors ({len(data['errors'])}) ===\n")
+        for error in data["errors"]:
+            location = error.get("check") or error.get("location") or "Unknown check"
+            report_lines.append(f"  - {location}: {error.get('message', 'Unknown error')}\n")
     print("[!] Writing report to file... This may take a while if there are many findings.")
     report = "".join(report_lines)    
+    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(report, encoding="utf-8")
     print(report, end="")
     print(f"Report written to {REPORT_PATH}")

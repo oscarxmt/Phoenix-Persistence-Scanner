@@ -3,12 +3,13 @@
 
 
 import platform
-import os
 import argparse
+import base64
 import json
 import subprocess
+import sys
 from pathlib import Path
-
+import risk_rules
 BASE_DIR = Path(__file__).resolve().parent
 
 
@@ -17,10 +18,35 @@ def json_config():
     
     if not config_path.exists():
         print(f"[X] Error: {config_path} not found. Please check if the configuration file is in the correct location.")
-        exit()
+        raise FileNotFoundError(config_path)
     
     with config_path.open('r', encoding='utf-8') as f:
-        return json.load(f)
+        config = json.load(f)
+    if not isinstance(config, dict) or not isinstance(config.get("checks"), dict):
+        raise ValueError("Configuration must contain a checks object")
+    if any(not isinstance(enabled, bool) for enabled in config["checks"].values()):
+        raise ValueError("Each check must be true or false")
+    output = config.get("output")
+    if not isinstance(output, dict) or not isinstance(output.get("file"), str) or not output["file"].strip():
+        raise ValueError("Configuration must contain a non-empty output.file path")
+    return config
+
+
+def output_path(config):
+    path = Path(config["output"]["file"])
+    return path if path.is_absolute() else BASE_DIR / path
+
+
+def run_check(script):
+    command = "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; & '" + str(script).replace("'", "''") + "'"
+    return subprocess.run(
+        ["powershell", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+         "-EncodedCommand", base64.b64encode(command.encode("utf-16-le")).decode("ascii")],
+        capture_output=True,
+        text=True,
+        encoding="utf-8-sig",
+        errors="replace",
+    )
 
 
 def windows():
@@ -29,7 +55,7 @@ def windows():
     
     if not scripts_path.exists():
         print(f"[X] Error: {scripts_path} not found. Please ensure the Windows folder within this repo, is in the correct location.")
-        exit()
+        raise FileNotFoundError(scripts_path)
     config = json_config()
     if config is None:
         return
@@ -46,6 +72,7 @@ def windows():
         "activesetup_scan": BASE_DIR / "Windows" / "activesetup_scan.ps1",
         "ifeo_scan": BASE_DIR / "Windows" / "ifeo_scan.ps1",
         "com_hijacking_scan": BASE_DIR / "Windows" / "com_hijacking_scan.ps1",
+        "drivers": BASE_DIR / "Windows" / "drivers_scan.ps1",
     }
 
     scan_results = {
@@ -59,18 +86,11 @@ def windows():
 
         print(f"[*] Running {check_name}...")
 
-        completed = subprocess.run(
-            [
-                "powershell",
-                "-NoProfile",
-                "-ExecutionPolicy",
-                "Bypass",
-                "-File",
-                str(script)
-            ],
-            capture_output=True,
-            text=True
-        )
+        try:
+            completed = run_check(script)
+        except OSError as error:
+            scan_results["errors"].append({"check": check_name, "message": str(error)})
+            continue
 
         if completed.returncode != 0:
             scan_results["errors"].append({
@@ -82,24 +102,60 @@ def windows():
 
         try:
             script_output = json.loads(completed.stdout)
+            if not isinstance(script_output, dict) or any(
+                not isinstance(script_output.get(field), list)
+                or any(not isinstance(item, dict) for item in script_output[field])
+                for field in ("results", "errors")
+            ):
+                raise ValueError("Expected results and errors arrays of objects")
             scan_results["results"].extend(script_output.get("results", []))
             scan_results["errors"].extend(script_output.get("errors", []))
-        except json.JSONDecodeError as error:
+        except ValueError as error:
             scan_results["errors"].append({
                 "check": check_name,
-                "message": "PowerShell returned invalid JSON",
+                "message": "PowerShell returned invalid scan output",
                 "details": str(error)
             })
+    for finding in scan_results["results"]:
+        finding["risk"] = risk_rules.rules_checker(finding)
+
     print("[+] Scan completed. Saving results to json file...")
-    output_file = Path(config["output"]["file"])
-    if not output_file.is_absolute():
-        output_file = BASE_DIR / output_file
+    output_file = output_path(config)
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     with output_file.open("w", encoding="utf-8") as file:
         json.dump(scan_results, file, indent=2)
 
     print(f"[+] Scan results saved to {output_file}")
+    return output_file
+
+
+def finish_reports(results_file):
+    report_file = BASE_DIR / "data" / "report.txt"
+    risk_report_file = BASE_DIR / "data" / "risk_report.txt"
+    # Earlier versions appended risk output directly to report.txt. Preserve
+    # that content in its own file before rebuilding the human-readable report.
+    if report_file.exists() and not risk_report_file.exists():
+        existing = report_file.read_text(encoding="utf-8", errors="replace")
+        if existing.lstrip().startswith("=== Risk rules"):
+            risk_report_file.write_text(existing, encoding="utf-8")
+            report_file.unlink()
+
+    if not report_file.exists():
+        import report_generator
+        report_generator.main()
+    else:
+        print(f"[i] Keeping existing report: {report_file}")
+
+    risk_exit = risk_rules.main([
+        "--input", str(results_file),
+        "--report", str(risk_report_file),
+    ])
+    if risk_exit:
+        raise RuntimeError("Risk rules could not append to the report")
+    print(f"[+] Human-readable report: {report_file}")
+    print(f"[+] Risk-rule report: {risk_report_file}")
+    return report_file
 
 def main():
     parser = argparse.ArgumentParser(description="Persistence Scanner")
@@ -112,7 +168,12 @@ def main():
     print("<" + "=" * 40 + ">")
     
     if current_os == "Windows":
-        windows()
+        try:
+            results_file = windows()
+            finish_reports(results_file)
+        except (OSError, ValueError) as error:
+            print(f"[X] {error}", file=sys.stderr)
+            return 1
     elif current_os == "Linux":
         print("[!] Linux detected. Support is not coded yet.")
     elif current_os == "Darwin":
@@ -123,4 +184,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

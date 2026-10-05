@@ -83,6 +83,28 @@ python3 .\report_generator.py
 ```
 
 Signature checks use Windows PowerShell's `Get-AuthenticodeSignature`.
+To run just the command rules against your saved scan results and print matches:
+
+```powershell
+py .\risk_rules.py
+```
+
+This reads `output.file` from `config.json` without modifying the scan. Use
+`--all` to include unmatched findings or `--input PATH` to check another scan JSON.
+The same output is appended to `data/report.txt` under a timestamped risk-rules
+heading, preserving existing content. Use `--report PATH` to append elsewhere.
+Every run adds a new section. If you regenerate the base report with
+`report_generator.py`, run `risk_rules.py` afterwards to append this section again.
+Run `py .\main.py` first if you have not saved a scan yet.
+
+The normal workflow is now one command: `py .\main.py` runs the Windows checks,
+saves JSON, keeps or creates the complete human-readable `data/report.txt`, and
+appends the newest rule results to `data/risk_report.txt`. The optional `llm.py`
+file is not run automatically until a local model provider is configured. It
+exposes `load_report()` and an `analyze_report()` hook, but does not download a
+model or require one.
+
+The report reads the result file selected by `output.file` in `config.json` and includes scan errors, even if signature verification fails.
 
 ## Configuration
 
@@ -110,6 +132,7 @@ Signature checks use Windows PowerShell's `Get-AuthenticodeSignature`.
 ```
 
 Set a check to `false` to skip it. Relative output paths are resolved from the project directory; absolute paths are used as supplied. The current runner writes JSON output.
+To include boot, system, and automatically started drivers, add `"drivers": true` to `checks`.
 
 ## Understanding the output
 
@@ -117,6 +140,22 @@ The report has two top-level arrays:
 
 - `results` contains discovered entries.
 - `errors` contains locations or checks that could not be read, plus other per-check issues.
+
+Each finding also gets a `risk` object from `risk_rules.rules_checker(finding)`.
+The starter rules flag known LOLBin executable names and PowerShell `-enc` /
+`-EncodedCommand` switches for review. The LOLBin list is based on
+[LOLBAS](https://lolbas-project.github.io/) and is intentionally small.
+These are heuristics: legitimate commands can match, and no match does not prove
+safety. The rules inspect the first executable; they do not parse nested shells,
+resolve shortcut targets, or detect renamed binaries or obfuscation.
+
+To add a rule, write a function in `risk_rules.py` that accepts one finding and
+returns a list of reasons (or `[]` for no match), then add it to `RULES`.
+`main.py` already calls the checker before saving. Importing the module alone
+does not run the rules. Optional signature results can be supplied as the second
+argument; they must belong to that finding. The scanner currently runs only the
+command rules, so unmatched findings stay `unknown`. The report shows signature
+results separately; even a `clean` signature-only assessment is not proof of safety.
 
 A finding generally includes:
 
@@ -159,12 +198,16 @@ report_generator.py     Human-readable report and Authenticode checks
 ## Current limitations
 
 - Phoenix currently supports Windows only.
-- Findings are collected, not classified as benign or suspicious.
+- Risk labels are heuristic review hints, not malware verdicts; signature checks remain a separate report step.
 - Recent-file filtering is not implemented.
 - Startup-folder entries are listed as files; shortcut targets are not resolved.
 - Results depend on the current account's permissions and Windows environment.
 
 ## Contributing
+
+Run the regression tests with `python -m unittest discover -s tests -v`. They are
+not part of the scanner workflow; they are repeatable checks for developers.
+PowerShell integration tests run on Windows and are skipped when PowerShell is unavailable.
 
 Bug reports and focused improvements are welcome. When adding a check, keep it read-only, emit the shared finding fields, include per-check errors in the JSON response, and document any platform or permission requirements.
 

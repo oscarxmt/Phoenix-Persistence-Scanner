@@ -4,53 +4,31 @@ param()
 $results = @()
 $errors = @()
 
-$currentUserStartupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
-$allUsersStartupPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
+# Known folders respect redirected profiles and relocated ProgramData folders.
+$startupPaths = @(
+    [Environment]::GetFolderPath([Environment+SpecialFolder]::Startup),
+    [Environment]::GetFolderPath([Environment+SpecialFolder]::CommonStartup)
+)
 
-if (Test-Path $currentUserStartupPath) {
-    $Current_User_Startup = Get-ChildItem -LiteralPath $currentUserStartupPath -Force
-}
-else {
-    $Current_User_Startup = @()
-    $errors += [PSCustomObject]@{
-        location = $currentUserStartupPath
-        message  = "Current user startup folder not found."
-    }
-}
-
-if (Test-Path $allUsersStartupPath) {
-    $All_Users_Startup = Get-ChildItem -LiteralPath $allUsersStartupPath -Force
-}
-else {
-    $All_Users_Startup = @()
-    $errors += [PSCustomObject]@{
-        location = $allUsersStartupPath
-        message  = "Common startup folder not found."
-    }
-}
-
-foreach ($item in $Current_User_Startup) {
-    $results += [PSCustomObject]@{
-        type     = "startup_folder"
-        name     = $item.Name
-        location = $item.FullName
-        command  = $null
-        enabled  = $true
-        evidence = @{
-            extension = $item.Extension
+foreach ($path in $startupPaths) {
+    try {
+        if ([string]::IsNullOrWhiteSpace($path) -or -not (Test-Path -LiteralPath $path -ErrorAction Stop)) {
+            throw "Startup folder not found."
         }
-    }
-}
-
-foreach ($item in $All_Users_Startup) { # by all users we mean the common startup folder basically common = all users.
-    $results += [PSCustomObject]@{
-        type     = "startup_folder"
-        name     = $item.Name
-        location = $item.FullName
-        command  = $null
-        enabled  = $true
-        evidence = @{
-            extension = $item.Extension
+        foreach ($item in Get-ChildItem -LiteralPath $path -File -Force -ErrorAction Stop) {
+            $results += [PSCustomObject]@{
+                type     = "startup_folder"
+                name     = $item.Name
+                location = $item.FullName
+                command  = $null
+                enabled  = $true
+                evidence = @{ extension = $item.Extension }
+            }
+        }
+    } catch {
+        $errors += [PSCustomObject]@{
+            location = $path
+            message = "Could not read startup folder: $($_.Exception.Message)"
         }
     }
 }

@@ -11,33 +11,41 @@ $outputPath  = Join-Path -Path $outputDir -ChildPath "scan_results.json"
 
 $registryPath = "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components"
 
-if (Test-Path $registryPath) {
-    foreach ($key in Get-ChildItem -Path $registryPath -ErrorAction Stop) {
-        try {
-            $keyPath = $key.PSPath
-            $stubPath = $key.GetValue("StubPath", $null)
-            $version  = $key.GetValue("Version", $null)
-            $name     = $key.GetValue("(LocalizedName)", $null)
-            $installed = $key.GetValue("IsInstalled", $null)
+try {
+    if (Test-Path -LiteralPath $registryPath -ErrorAction Stop) {
+        foreach ($key in Get-ChildItem -LiteralPath $registryPath -ErrorAction Stop) {
+            try {
+                $keyPath = $key.PSPath
+                $stubPath = $key.GetValue("StubPath", $null)
+                $version  = $key.GetValue("Version", $null)
+                $name     = $key.GetValue("(LocalizedName)", $null)
+                $installed = $key.GetValue("IsInstalled", $null)
 
-            if (-not [string]::IsNullOrWhiteSpace([string]$stubPath)) {
-                $results += [ScanFinding]::new("active_setup", "StubPath", $keyPath, [string]$stubPath, $true,
-                    @{
-                        hive         = $keyPath
-                        value_name   = "StubPath"
-                        version      = [string]$version
-                        localized_name = [string]$name
-                        is_installed = $installed
-                    }
-                )
+                if (-not [string]::IsNullOrWhiteSpace([string]$stubPath)) {
+                    $results += [ScanFinding]::new("active_setup", "StubPath", $keyPath, [string]$stubPath, $true,
+                        @{
+                            hive         = $keyPath
+                            value_name   = "StubPath"
+                            version      = [string]$version
+                            localized_name = [string]$name
+                            is_installed = $installed
+                        }
+                    )
+                }
+            }
+            catch {
+                $errors += [PSCustomObject]@{
+                    location = $key.PSPath
+                    message  = "Could not read Active Setup key: $($_.Exception.Message)"
+                }
             }
         }
-        catch {
-            $errors += [PSCustomObject]@{
-                location = $key.PSPath
-                message  = "Could not read Active Setup key: $($_.Exception.Message)"
-            }
-        }
+    }
+
+} catch {
+    $errors += [PSCustomObject]@{
+        location = $registryPath
+        message = "Could not enumerate Active Setup keys: $($_.Exception.Message)"
     }
 }
 
