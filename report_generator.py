@@ -81,7 +81,8 @@ def verify_binaries():
     powershell_script = r"""
 [Console]::InputEncoding = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-    Import-Module Microsoft.PowerShell.Security -ErrorAction Stop
+$securityModule = Join-Path $PSHOME "Modules\Microsoft.PowerShell.Security\Microsoft.PowerShell.Security.psd1"
+Import-Module -Name $securityModule -ErrorAction Stop
     $paths = @(
     foreach ($line in ([Console]::In.ReadToEnd() -split "`r?`n")) {
         if ($line) {
