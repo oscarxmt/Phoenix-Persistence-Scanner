@@ -76,6 +76,14 @@ python3 C:\path\to\Phoenix-Persistance-Scanner\main.py
 
 The runner locates scripts and configuration relative to `main.py`, not the current directory. By default, the combined report is saved to `data/scan_results.json`.
 
+To create the human-readable report, including Authenticode signature status for binary and script paths referenced by findings, run:
+
+```powershell
+python3 .\report_generator.py
+```
+
+Signature checks use Windows PowerShell's `Get-AuthenticodeSignature`.
+
 ## Configuration
 
 `config.json` controls which checks run and where the combined report is written:
@@ -145,14 +153,14 @@ main.py                 Python runner
 config.json             Check toggles and output path
 Windows/                PowerShell checks and shared finding class
 data/scan_results.json  Default combined report
-report_generator.py     Reserved for report generation
+report_generator.py     Human-readable report and Authenticode checks
 ```
 
 ## Current limitations
 
 - Phoenix currently supports Windows only.
 - Findings are collected, not classified as benign or suspicious.
-- Unsigned-binary checks, recent-file filtering, and a human-friendly report are not implemented yet.
+- Recent-file filtering is not implemented.
 - Startup-folder entries are listed as files; shortcut targets are not resolved.
 - Results depend on the current account's permissions and Windows environment.
 
