@@ -76,7 +76,7 @@ python3 C:\path\to\Phoenix-Persistance-Scanner\main.py
 
 The runner locates scripts and configuration relative to `main.py`, not the current directory. By default, the combined report is saved to `data/scan_results.json`.
 
-To create the human-readable report, including Authenticode signature status for binary and script paths referenced by findings, run:
+To print a human-readable report and save it to `data/report.txt`, including Authenticode signature status for binary and script paths referenced by findings, run:
 
 ```powershell
 python3 .\report_generator.py

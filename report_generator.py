@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent
 RESULTS_DIR = BASE_DIR / "data" / "scan_results.json"
 REPORT_PATH = BASE_DIR / "data" / "report.txt"
 
-
+# CODE DOESNT WORK DO NOT RUN CURRENTLY
 def format_finding(finding):
     ftype = finding['type']
     name = finding.get('name') or '(unnamed)'
@@ -25,6 +25,28 @@ def format_finding(finding):
         base += f" ({evidence.get('server_type', '?')}, exists={evidence.get('file_exists', '?')})"
 
     return base
+
+
+def format_signature(signature):
+    path = signature["path"]
+    if "error" in signature:
+        return f"  - ERROR: {path} - {signature['error']}"
+
+    status = signature.get("status", "Unknown")
+    if status == "Valid":
+        label = "SIGNED"
+    elif status == "NotSigned":
+        label = "UNSIGNED"
+    else:
+        label = status.upper()
+
+    signer = signature.get("signer") or "no signer certificate"
+    message = signature.get("message") or ""
+    details = f" ({signer})"
+    if message:
+        details += f" - {message}"
+    return f"  - {label} ({status}): {path}{details}"
+
 
 def verify_binaries():
     with RESULTS_DIR.open("r", encoding="utf-8") as f:
@@ -59,7 +81,14 @@ def verify_binaries():
     powershell_script = r"""
 [Console]::InputEncoding = [System.Text.Encoding]::UTF8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-$paths = @(ConvertFrom-Json -InputObject ([Console]::In.ReadToEnd()))
+    Import-Module Microsoft.PowerShell.Security -ErrorAction Stop
+    $paths = @(
+    foreach ($line in ([Console]::In.ReadToEnd() -split "`r?`n")) {
+        if ($line) {
+            ConvertFrom-Json -InputObject $line
+        }
+    }
+)
 $results = foreach ($path in $paths) {
     $resolvedPath = [Environment]::ExpandEnvironmentVariables([string]$path)
     try {
@@ -82,7 +111,7 @@ ConvertTo-Json -InputObject @($results) -Depth 3 -Compress
 """
     completed = subprocess.run(
         ["powershell", "-NoProfile", "-NonInteractive", "-Command", powershell_script],
-        input=json.dumps(list(binary_paths.values())),
+        input="\n".join(json.dumps(path) for path in binary_paths.values()),
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -99,6 +128,7 @@ ConvertTo-Json -InputObject @($results) -Depth 3 -Compress
 
 
 def main():
+    print("[!] Generating report...")
     with open(RESULTS_DIR, "r") as f:
         data = json.load(f)
 
@@ -110,24 +140,23 @@ def main():
 
     binary_signatures = verify_binaries()
 
-    with open(REPORT_PATH, "w") as out:
-        for scan_type, items in grouped.items():
-            out.write(f"\n=== {scan_type} ({len(items)} findings) ===\n")
-            for finding in items:
-                out.write(f"  - {format_finding(finding)}\n")
+    report_lines = []
+    for scan_type, items in grouped.items():
+        report_lines.append(f"\n=== {scan_type} ({len(items)} findings) ===\n")
+        for finding in items:
+            report_lines.append(f"  - {format_finding(finding)}\n")
 
-        if binary_signatures:
-            out.write(f"\n=== Binary signatures ({len(binary_signatures)} files) ===\n")
-            for signature in binary_signatures:
-                if "error" in signature:
-                    out.write(f"  - {signature['path']}: ERROR - {signature['error']}\n")
-                else:
-                    signer = signature.get("signer") or "no signer certificate"
-                    out.write(
-                        f"  - {signature['path']}: {signature['status']} "
-                        f"({signer}) - {signature['message']}\n"
-                    )
-
+    if binary_signatures:
+        report_lines.append(
+            f"\n=== Binary signatures ({len(binary_signatures)} files) ===\n"
+        )
+        report_lines.extend(
+            f"{format_signature(signature)}\n" for signature in binary_signatures
+        )
+    print("[!] Writing report to file... This may take a while if there are many findings.")
+    report = "".join(report_lines)    
+    REPORT_PATH.write_text(report, encoding="utf-8")
+    print(report, end="")
     print(f"Report written to {REPORT_PATH}")
 
 
