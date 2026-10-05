@@ -59,6 +59,7 @@ def windows():
     config = json_config()
     if config is None:
         return
+    # here we are listing all of the windows powershell scripts indeed :3
     checks = {
         "registry_run_keys": BASE_DIR / "Windows" / "reg_startup_scan.ps1",
         "registry_runonce_keys": BASE_DIR / "Windows" / "reg_runonce_scan.ps1",
@@ -133,8 +134,6 @@ def windows():
 def finish_reports(results_file):
     report_file = BASE_DIR / "data" / "report.txt"
     risk_report_file = BASE_DIR / "data" / "risk_report.txt"
-    # Earlier versions appended risk output directly to report.txt. Preserve
-    # that content in its own file before rebuilding the human-readable report.
     if report_file.exists() and not risk_report_file.exists():
         existing = report_file.read_text(encoding="utf-8", errors="replace")
         if existing.lstrip().startswith("=== Risk rules"):
