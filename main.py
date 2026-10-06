@@ -73,7 +73,7 @@ def windows():
         "activesetup_scan": BASE_DIR / "Windows" / "activesetup_scan.ps1",
         "ifeo_scan": BASE_DIR / "Windows" / "ifeo_scan.ps1",
         "com_hijacking_scan": BASE_DIR / "Windows" / "com_hijacking_scan.ps1",
-        "drivers": BASE_DIR / "Windows" / "drivers_scan.ps1",
+        "drivers_scan": BASE_DIR / "Windows" / "drivers_scan.ps1",
     }
 
     scan_results = {

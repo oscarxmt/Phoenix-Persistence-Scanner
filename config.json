@@ -12,7 +12,7 @@
         "activesetup_scan": true,
         "ifeo_scan": true,
         "com_hijacking_scan": true,
-        "drivers": true
+        "drivers_scan": true
     },
     "output": {
         "format": "json",
