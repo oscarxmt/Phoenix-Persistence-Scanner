@@ -1,17 +1,20 @@
 import json
 import re
 import subprocess
+import getpass
 from pathlib import Path
 from collections import defaultdict
 from main import json_config, output_path
+
 
 BASE_DIR = Path(__file__).resolve().parent
 REPORT_PATH = BASE_DIR / "data" / "report.txt"
 
 EXTENSIONS = "exe|dll|sys|ocx|scr|cpl|drv|efi|cat|ps1|psm1|psd1|msi|msp"
+PATH_PREFIX = r"(?:[A-Za-z]:\\|\\\\|%[^%]+%\\|\\SystemRoot\\|System32\\)"
 PATH_PATTERN = re.compile(
-    rf"""["'](?P<quoted>(?:[A-Za-z]:\\|\\\\|%[^%]+%\\)[^"']+?\.(?:{EXTENSIONS}))["']"""
-    rf"""|(?P<unquoted>(?:[A-Za-z]:\\|\\\\|%[^%]+%\\)[^"'<>|\r\n]*?\.(?:{EXTENSIONS}))(?=$|[\s"',;])""",
+    rf"""["'](?P<quoted>{PATH_PREFIX}[^"']+?\.(?:{EXTENSIONS}))["']"""
+    rf"""|(?<![\w\\])(?P<unquoted>{PATH_PREFIX}[^"'<>|\r\n]*?\.(?:{EXTENSIONS}))(?=$|[\s"',;])""",
     re.IGNORECASE,
 )
 
@@ -94,6 +97,11 @@ Import-Module -Name $securityModule -ErrorAction Stop
 $results = foreach ($path in $paths) {
     $resolvedPath = [Environment]::ExpandEnvironmentVariables([string]$path)
     try {
+        if ($resolvedPath -match '^\\SystemRoot\\') {
+            $resolvedPath = Join-Path $env:SystemRoot $resolvedPath.Substring('\SystemRoot\'.Length)
+        } elseif ($resolvedPath -match '^System32\\') {
+            $resolvedPath = Join-Path $env:SystemRoot $resolvedPath
+        }
         if (-not (Test-Path -LiteralPath $resolvedPath -PathType Leaf -ErrorAction Stop)) {
             [PSCustomObject]@{ original_path = $path; path = $resolvedPath; error = "File does not exist" }
             continue
@@ -134,6 +142,12 @@ def main():
     print("[!] Generating report...")
     with output_path(json_config()).open("r", encoding="utf-8") as f:
         data = json.load(f)
+    try:
+        scanned_user = getpass.getuser()
+    except Exception:
+        scanned_user = "UNKOWN"
+
+    
 
     findings = data["results"]
 
@@ -148,6 +162,7 @@ def main():
         data.setdefault("errors", []).append({"check": "binary_signatures", "message": str(error)})
 
     report_lines = []
+    report_lines = [f"Scanned hosts username: {scanned_user}\n"]
     for scan_type, items in grouped.items():
         report_lines.append(f"\n=== {scan_type} ({len(items)} findings) ===\n")
         for finding in items:

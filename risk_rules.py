@@ -56,8 +56,9 @@ def check_lolbins(finding):
 
 def check_encoded_powershell(finding):
     executable, arguments = command_parts(finding)
-    if executable in {"powershell", "powershell.exe", "pwsh", "pwsh.exe"} and re.search(
-        r"(?:^|\s)-(?:enc|encodedcommand)(?=\s|$)", arguments, re.IGNORECASE
+    switches = re.findall(r"(?:^|\s)-([a-z]+)(?=\s|$)", arguments, re.IGNORECASE)
+    if executable in {"powershell", "powershell.exe", "pwsh", "pwsh.exe"} and any(
+        "encodedcommand".startswith(switch.casefold()) for switch in switches
     ):
         return ["PowerShell encoded command in persistence entry; review the decoded content"]
     return []
@@ -75,8 +76,6 @@ def evaluate(finding, signatures=()):
     has_rule_match = bool(reasons)
     signatures = list(signatures)
     has_error = not signatures
-    if not signatures:
-        reasons.append("No binary signatures were checked")
     has_invalid_signature = False
     
     for sig in signatures:
@@ -109,13 +108,12 @@ def main(argv=None):
     parser.add_argument("--input", type=Path, help="Scan JSON to read (default: output.file in config.json)")
     parser.add_argument("--all", action="store_true", help="Also display findings without rule matches")
     parser.add_argument("--report", type=Path, default=REPORT_PATH,
-                        help="Report to append to (default: data/report.txt)")
+                        help="Report to append to (default: data/risk_report.txt)")
     args = parser.parse_args(argv)
 
     try:
         input_path = args.input
         if input_path is None:
-            # Reuse the scanner's configuration handling only when run as a CLI.
             from main import json_config, output_path
             input_path = output_path(json_config())
         if args.report.resolve() == input_path.resolve():
@@ -160,7 +158,6 @@ def main(argv=None):
     except OSError as error:
         print(f"[X] Could not append to report: {error}", file=sys.stderr)
         return 1
-    print(f"[+] Risk rules appended to {args.report}")
     return 0
 
 
