@@ -140,8 +140,6 @@ def finish_reports(results_file):
             risk_report_file.write_text(existing, encoding="utf-8")
             report_file.unlink()
 
-    # Rebuild the complete human-readable report on every scan. Rule output is
-    # kept separately in risk_report.txt, so this file can safely be refreshed.
     import report_generator
     report_generator.main()
 
