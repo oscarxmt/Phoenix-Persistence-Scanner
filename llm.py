@@ -1,4 +1,6 @@
 from pathlib import Path
+from openai import OpenAI
+import subprocess
 
 BASE_DIR = Path(__file__).resolve().parent
 REPORT_PATH = BASE_DIR / "data" / "report.txt"
@@ -19,7 +21,26 @@ def main():
     print(f"[i] Report ready for a local LLM: {REPORT_PATH}")
     print(f"[i] Characters available: {len(load_report())}")
     print("[i] No model is configured yet; the scanner does not download one automatically.")
-    return 0
+    subprocess.Popen(
+        ""
+        ""
+    )    # add the commadn for running llama server.exe here
+    # TODO start the llama localhost server before running this script.
+    client = OpenAI(
+        base_url="http://localhost:8080/v1",
+        api_key="not-needed",
+    )
+
+    response = client.chat.completions.create(
+        model="local-model",
+        messages=[
+            {"role": "user", "content": "Hello!"},
+        ],
+    )
+
+    print(response.choices[0].message.content)
+
+
 
 
 if __name__ == "__main__":
