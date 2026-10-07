@@ -21,10 +21,7 @@ def main():
     print(f"[i] Report ready for a local LLM: {REPORT_PATH}")
     print(f"[i] Characters available: {len(load_report())}")
     print("[i] No model is configured yet; the scanner does not download one automatically.")
-    subprocess.Popen(
-        ""
-        ""
-    )    # add the commadn for running llama server.exe here
+    #subprocess.run(["powershell.exe", "-c", "Start-Process lama-server.exe"]) UNFINISHED CODE
     # TODO start the llama localhost server before running this script.
     client = OpenAI(
         base_url="http://localhost:8080/v1",
@@ -37,7 +34,7 @@ def main():
             {"role": "user", "content": "Hello!"},
         ],
     )
-
+    
     print(response.choices[0].message.content)
 
 
