@@ -1,1 +1,2 @@
-openai
+# No third-party Python packages are required.
+# Optional LLM analysis uses a separately installed llama.cpp server and GGUF model.

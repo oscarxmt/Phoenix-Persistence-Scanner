@@ -1,3 +1,0 @@
-git add .gitignore
-git commit -m "stop tracking scan output"
-git push
