@@ -11,7 +11,7 @@ Collect startup-related entries into structured JSON so they can be reviewed, pa
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-5391FE?style=flat-square&logo=powershell&logoColor=white)
 ![Mode](https://img.shields.io/badge/mode-read--only-2E8B57?style=flat-square)
 
-**Scan → Review evidence → Analyze locally**
+**Scan → Review evidence → Analyze locally with llm**
 
 [Get started](#quick-start) · [Local model setup](#setup-and-usage) · [Command examples](#command-examples) · [Troubleshooting](#troubleshooting)
 
