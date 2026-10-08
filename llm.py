@@ -85,7 +85,7 @@ def find_server(value=None):
         found = shutil.which(str(path))
         if found:
             return Path(found).resolve()
-        raise ValueError(f"Server executable not found: {value}")
+        raise ValueError(f"Server executable not found: {value}\nYou can download it from github https://github.com/ggml-org/llama.cpp/releases rememeber to use the version that your gpu supports.\nIf you don't have a GPU, you can use the CPU version.")
     for name in ("llama-server.exe", "lama-server.exe", "llama-server"):
         for directory in (BASE_DIR, Path.cwd()):
             if (directory / name).is_file():
@@ -210,9 +210,9 @@ def main(argv=None):
     parser.add_argument("--batch-size", type=positive_int, default=6000,
                         help="Maximum UTF-8 report bytes per batch (default: 6000)")
     parser.add_argument("--full-report", action="store_true", help="Send the entire report in one request instead of batches")
-    parser.add_argument("--thinking", action="store_true", help="Enable extra reasoning for models such as Qwen3 (slower)")
+    parser.add_argument("--thinking", action="store_true", help="Enable extra reasoning for models such as Qwen3 (will be slower)")
     parser.add_argument("--yarn-orig-ctx", type=positive_int,
-                        help="Enable YaRN context extension from this native context size (Qwen3-14B: 32768)")
+                        help="Enable YaRN context extension from this native context size (Example: Qwen3-14B: 32768)")
     parser.add_argument("--startup-timeout", type=positive_int, default=300, help="Model loading timeout in seconds")
     parser.add_argument("--timeout", type=positive_int, default=600, help="Analysis timeout per batch in seconds")
     args = parser.parse_args(argv)
@@ -235,8 +235,6 @@ def main(argv=None):
         report_text = load_report(report_path)
         if not report_text.strip():
             raise ValueError(f"Report is empty: {report_path}. Run main.py first")
-        # Reserve room for the system prompt, batch label, chat template and output.
-        # A UTF-8 byte limit is conservative; it is not an exact tokenizer count.
         batch_bytes = min(args.batch_size, args.ctx_size - args.max_tokens - 1024)
         batches = [report_text] if args.full_report else list(split_report(report_text, batch_bytes))
         print(f"[i] Report: {len(report_text):,} characters in {len(batches)} batch(es); all text retained.")
@@ -250,7 +248,7 @@ def main(argv=None):
         if server is None:
             server_value = input("Path to llama-server.exe: ").strip()
             if not server_value:
-                raise ValueError("A llama-server.exe path is required")
+                raise ValueError(f"A llama-server.exe path is required.\nYou can download it from github https://github.com/ggml-org/llama.cpp/releases rememeber to use the version that your gpu supports.\nIf you don't have a GPU, you can use the CPU version.")
             server = find_server(server_value)
 
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as probe:
