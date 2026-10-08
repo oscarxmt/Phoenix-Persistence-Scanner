@@ -206,7 +206,9 @@ before the entire report has been processed. The server stays loaded between
 batches. Repeated certificate descriptions within a batch are stored once in a
 reference legend; paths, signature statuses, and certificate details remain
 available to the model. These optimizations apply to all supported GGUF chat
-models. It stops the server on completion, failure, or Ctrl+C. Server diagnostics are saved to
+models. After all batches finish, their analyses are consolidated into one
+deduplicated, prioritized assessment, printed and saved to `data/llm_final_report.txt`.
+It stops the server on completion, failure, or Ctrl+C. Server diagnostics are saved to
 `data/llama-server.log`, which is replaced on each server launch.
 
 ### Command examples
@@ -219,6 +221,8 @@ You can add `--model PATH` and `--server PATH` to any of them.
 | Standard review | `py .\llm.py` | Uses the default batch and context settings. |
 | Shorter wait per batch | `py .\llm.py --batch-size 3000` | Sends less input per request; there will be more batches. |
 | Longer answers | `py .\llm.py --max-tokens 2048` | Allows more output per batch and may take longer. |
+| Longer final assessment | `py .\llm.py --final-max-tokens 4096` | Allows more output for the consolidated report. |
+| Save the final assessment elsewhere | `py .\llm.py --output "C:\Scans\final.txt"` | Changes the final AI report destination. |
 | Extra model reasoning | `py .\llm.py --thinking --max-tokens 4096` | Enables thinking where supported and increases the response budget. |
 | More time for slow hardware | `py .\llm.py --startup-timeout 600 --timeout 1200` | Allows 10 minutes to load and 20 minutes per analysis request. |
 | A different local port | `py .\llm.py --port 8081` | Starts a new server on port 8081. |
@@ -238,12 +242,14 @@ scan JSON file in the usual format, generate its human-readable report first.
 | `--port N` | Local server port | `8080` |
 | `--ctx-size N` | Context size in tokens | `8192` |
 | `--max-tokens N` | Maximum response length per batch in tokens | `1024` |
+| `--final-max-tokens N` | Maximum consolidated response length in tokens | `3072` |
+| `--output PATH` | Destination for the final AI assessment | Project's `data/llm_final_report.txt` |
 | `--batch-size N` | Maximum UTF-8 report bytes per batch | `6000` |
-| `--full-report` | Send the entire report in one request | Off |
+| `--full-report` | Analyze the source as one batch before consolidation | Off |
 | `--thinking` | Enable extra reasoning in models that support it | Off |
 | `--yarn-orig-ctx N` | Enable YaRN extension from the model's native context size | Not overridden |
 | `--startup-timeout N` | Model loading timeout in seconds | `300` |
-| `--timeout N` | Analysis request timeout per batch in seconds | `600` |
+| `--timeout N` | Timeout per analysis or consolidation request in seconds | `600` |
 
 `--max-tokens` must be smaller than `--ctx-size` to leave room for the report.
 Run `py .\llm.py --help` to view the command-line reference.
@@ -252,6 +258,7 @@ In batch mode, leave at least 2048 tokens between `--ctx-size` and
 `--max-tokens`. The script further reduces the requested batch size when necessary
 to reserve space for instructions and the response. Port numbers must be between
 1 and 65535; sizes and timeout values must be positive integers.
+Leave at least 2048 tokens between `--ctx-size` and `--final-max-tokens` as well.
 
 ### Performance and quality
 
@@ -263,17 +270,30 @@ Extra thinking is disabled through the model's chat template where supported.
 Use `--thinking` when you prefer more reasoning at the cost of speed.
 
 Batch reviews are independent: related commands and signatures may appear in
-different batches, so results are not a combined verdict. Interrupted or failed
-runs state how many batches completed and are marked incomplete. Earlier results
-remain in the terminal.
+different batches. A final pass merges these reviews, correlates evidence, and
+deduplicates findings. Interrupted or failed runs (including consolidation failures)
+state how many batches completed and are marked incomplete. Earlier batch results
+remain in the terminal; the saved final report is only replaced after a new
+assessment has been generated successfully.
 
-#### Understand the three size settings
+Before consolidation, the script uses llama-server's
+[`/apply-template` and `/tokenize` endpoints](https://github.com/ggml-org/llama.cpp/tree/master/tools/server#post-apply-template-apply-chat-template-to-a-conversation)
+to count the formatted prompt, reserving the final response budget plus 256 tokens
+of slack. If the reviews do not fit, it summarizes smaller groups and checks again,
+up to eight reduction passes. Intermediate summaries use up to 1024 output tokens
+(less for small budgets), with thinking disabled. No batch review is silently
+discarded to make the input fit, but model summarization can lose detail. Increase
+`--ctx-size` within your model and memory limits to reduce the need for these extra
+passes. The server remains loaded at the chosen context size throughout the run.
+
+#### Understand the size settings
 
 | Setting | Unit | What it controls |
 | --- | --- | --- |
 | `--batch-size` | UTF-8 bytes | How much original report text is included in each request. This is not a token count. |
 | `--ctx-size` | Tokens | The space available for instructions, report input, and generated output. Larger values require more memory. |
 | `--max-tokens` | Tokens | The upper limit on each response, including reasoning where the model counts it in the response budget. |
+| `--final-max-tokens` | Tokens | The output budget reserved for the final consolidated assessment. |
 
 A character count is not a token count. Paths, punctuation, encoded commands,
 and the model's tokenizer can all affect how many tokens a report needs.
@@ -292,7 +312,9 @@ Increasing `--max-tokens` does not fix an input-context error. Increasing
   distinguish observations from guesses and warn against treating missing
   cross-batch information as evidence of safety or a missing signature.
 
-The script does not automatically merge batch answers into a final assessment.
+The final assessment is based on model summaries and may omit details. Truncated
+batch or intermediate reviews are flagged in the final report; a truncated final
+response identifies `--final-max-tokens` as the setting to increase.
 Check related findings against the original report, especially when a command
 and its signature appear in different batches. Enabling `--thinking` requests
 additional reasoning; its effect depends on the model and chat template and does
@@ -304,10 +326,13 @@ not guarantee a more accurate answer.
 | --- | --- |
 | `Loading ...` | The server is loading the selected model. |
 | `Analyzing batch 3/16` | The third request is in progress. |
+| `Reducing smaller groups` | Combined reviews exceed the final input budget; intermediate summaries are being prepared. |
+| `Consolidating 16 batch reviews` | The final assessment is being generated. |
+| `Final AI report saved to ...` | The consolidated assessment has been printed and saved. |
 | `prompt processing ... progress = 0.44` | The server has processed about 44% of the current request's input; it has not necessarily started answering. |
 | `n_gen` or `eval time` | The server is generating output or reporting generation timings. |
 | `cancel task` | A request was cancelled. This line alone does not establish whether the cause was interruption, a disconnected client, or a timeout. |
-| `review is incomplete` | The run stopped before every batch completed; earlier results cover only completed batches. |
+| `review is incomplete` | A batch, consolidation, or save step failed or was interrupted; no new final report was saved. |
 
 Responses appear when each batch finishes, rather than token by token. To watch
 the server's progress in a second PowerShell window, run this from the project
@@ -370,8 +395,12 @@ If the process is unresponsive, use Task Manager to end the specific
 system reclaims the process's GPU memory. The current response is lost, and
 `llm.py` may report a connection error.
 
-Analysis is printed to the terminal and is not automatically saved to a separate
-file. To display it and save a copy, use PowerShell's `Tee-Object`:
+The final consolidated assessment is automatically saved to `data/llm_final_report.txt`.
+Use `--output PATH` to choose another destination. A successful run replaces the
+previous final report; a failed run leaves the previous file in place, so check the
+terminal's completion message. The source scan report is not overwritten.
+To also save the individual batch reviews, status messages, and errors, use
+PowerShell's `Tee-Object`:
 
 ```powershell
 py -u .\llm.py --server "C:\llama.cpp\llama-server.exe" --model "C:\Models\model.gguf" 2>&1 | Tee-Object -FilePath .\data\llm_analysis.txt
@@ -393,7 +422,8 @@ The server log is a separate diagnostic file and is also replaced on launch.
 | Model loading fails or times out | Review `data/llama-server.log`; check model compatibility and available memory. Increase `--startup-timeout` if loading is slow. |
 | Report exceeds the context size | Increase `--ctx-size` within the model's supported limits and available memory, or supply a smaller report. |
 | Long wait while processing the prompt | Use the default batch mode, reduce `--batch-size`, and leave `--thinking` off. Increasing the context size alone does not make processing faster. |
-| Response reaches the token limit or generation times out | Increase `--max-tokens` within the context budget, or increase `--timeout`, as appropriate. |
+| Response reaches the token limit or generation times out | Increase `--max-tokens` for batches, `--final-max-tokens` for the final report, or `--ctx-size` for intermediate summaries, within the context budget. Increase `--timeout` for timeouts. |
+| Consolidation token-count endpoint is unavailable | Update llama-server to a build supporting `/apply-template` and `/tokenize`. Batch reviews remain visible in the terminal. |
 | `py` or `python` is not recognized, or opens Microsoft Store | Check your Python installation and launcher. Try `py --version` or `python --version`, then use the working command consistently. |
 | A path with spaces cannot be found | Quote the complete path. Confirm it points to the file, not its containing directory. |
 | `--max-tokens` leaves too little context | Reduce the response limit or increase context within the model's limits. Batch mode requires at least 2048 tokens beyond the response budget. |
@@ -535,6 +565,7 @@ data/report.txt         Human-readable scan report
 data/risk_report.txt    Timestamped command-rule results
 data/llama-server.log   Diagnostics from the latest local server launch
 data/llm_analysis.txt   Optional terminal capture created with Tee-Object
+data/llm_final_report.txt  Consolidated AI assessment saved by llm.py
 ```
 
 ## Current limitations
