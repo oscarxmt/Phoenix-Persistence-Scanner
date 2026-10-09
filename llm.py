@@ -413,8 +413,7 @@ def main(argv=None):
                    "--ctx-size", str(args.ctx_size), "--parallel", "1", "--jinja"]
         if args.yarn_orig_ctx:
             scale = args.ctx_size / args.yarn_orig_ctx
-            command.extend(["--rope-scaling", "yarn", "--rope-scale", f"{scale:g}",
-                            "--yarn-orig-ctx", str(args.yarn_orig_ctx)])
+            command.extend(["--rope-scaling", "yarn", "--rope-scale", f"{scale:g}", "--yarn-orig-ctx", str(args.yarn_orig_ctx)])
         print(f"[i] Server executable: {server}")
         print(f"[i] Context: {args.ctx_size} tokens; batch response: {args.max_tokens}; "
               f"final response: {args.final_max_tokens} tokens")
